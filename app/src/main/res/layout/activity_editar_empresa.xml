@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Datosdeempresa">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logotipo de tu empresa" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/foto1e"
+                    android:layout_width="343dp"
+                    android:layout_height="156dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <Button
+                    android:id="@+id/camara1e"
+                    android:layout_width="104dp"
+                    android:layout_height="59dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/ic_menu_camera"
+                    android:gravity="bottom" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/razonsocialle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=" Razon soc. de tu empresa" />
+
+            <EditText
+                android:id="@+id/direccionempresale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Direccion  de tu empresa"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/telefonoempresale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Telefono de tu Empresa"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/emailempresale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Correo de tu Empresa"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/paginawebempresle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Pagina web empresa"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/sloganempresale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Slogan de tu empresa"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/nombreadministradorle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre del Administrador"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/telefonoadministradorle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Telefono Administrador"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rubro  actual"
+                        android:textColor="@color/accent" />
+
+                    <TextView
+                        android:id="@+id/rubrotraido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:textColor="@color/accent" />
+                </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spinnerrubroempresale"
+                    android:layout_width="302dp"
+                    android:layout_height="39dp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/montominimole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Monto minimo para delivery"
+                android:inputType="textPersonName|numberDecimal" />
+
+            <EditText
+                android:id="@+id/demoraempresale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="tiempo promedio que se demora el delivery"
+                android:inputType="number|textPersonName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/guardarproducto2e"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:background="@drawable/btn_orange_2"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Actualizar"
+                android:textColor="@color/colortres"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.392"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

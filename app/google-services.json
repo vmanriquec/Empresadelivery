@@ -1,0 +1,323 @@
+{
+  "project_info": {
+    "project_number": "28228711284",
+    "firebase_url": "https://coronasoda-c0198.firebaseio.com",
+    "project_id": "coronasoda-c0198",
+    "storage_bucket": "coronasoda-c0198.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:3b6f13f6a90fa892d2b221",
+        "android_client_info": {
+          "package_name": "com.coronacovid.nomerindooooo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-uvvh17k4teig187ct88cn1ker8ihpc8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coronacovid.nomerindooooo",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:32aa73f15f1b758ed2b221",
+        "android_client_info": {
+          "package_name": "com.coronasoda.coronasodaempresa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-3klqg7i5f4rratv2jvhib4son9a9h2sm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coronasoda.coronasodaempresa",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:b92aaae3a8f5059cd2b221",
+        "android_client_info": {
+          "package_name": "com.empresadelivery.deliveryempresa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-6flb3n36q22t1qrod0hbnff3d0hi9v0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.empresadelivery.deliveryempresa",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:47ab6c9572a52980d2b221",
+        "android_client_info": {
+          "package_name": "com.empresadelivery.empresadelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-dq2m8kua2s9ks1ibfqal8epr4l2sbequ.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.empresadelivery.empresadelivery",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:936771e67b32661dd2b221",
+        "android_client_info": {
+          "package_name": "com.llamasoda.coronasoda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-1hd1mn73gg3ca46c7j99r4lmkq4h44ab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llamasoda.coronasoda",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:70273c7313e7cc76d2b221",
+        "android_client_info": {
+          "package_name": "com.llamasoda.delifast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-dr6h7grepaotsmii7q2vr41oi7fjsr8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.llamasoda.delifast",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:c825e11ed1d48976d2b221",
+        "android_client_info": {
+          "package_name": "com.mazinger.masterdelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-jc8rc78duvi9t34e0ftb4obprng9ki8f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mazinger.masterdelivery",
+            "certificate_hash": "325c929899d81645419cfe1b6e5615c8f39cd62c"
+          }
+        },
+        {
+          "client_id": "28228711284-dealhekjhbmlbqivaocpo7g0qim1e3bd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mazinger.masterdelivery",
+            "certificate_hash": "b39d67bdf385135515686a57a1241806f0584dcb"
+          }
+        },
+        {
+          "client_id": "28228711284-avvnv2f00p717g20en24binlv0td4d7h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mazinger.masterdelivery",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28228711284:android:07e352693005c8e7d2b221",
+        "android_client_info": {
+          "package_name": "comanda.sodapop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28228711284-baefq1n3rddajvgcvcenrldon1i2kj28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "comanda.sodapop",
+            "certificate_hash": "416246f5b4764ed2c1d9fe49659254cc321d22b9"
+          }
+        },
+        {
+          "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU6L-eo8fdSi0LZ5udTS7-MaxdFAXC28Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28228711284-uqrkrqpev5jgcb2gb3ckch0s9fms37cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
