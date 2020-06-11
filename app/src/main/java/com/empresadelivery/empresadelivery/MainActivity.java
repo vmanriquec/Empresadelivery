@@ -84,9 +84,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // new cargardescuentos().execute();
+        //new cargartiposdepago().execute();
+
         quesemuestra=(TextView)findViewById(R.id.quesemuestra);
         SharedPreferences prefs;
         String FileName = "myfile";
+        prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
 
         Realm.init(getApplicationContext());
 
@@ -101,11 +105,15 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView pedidos= findViewById(R.id.recycler);
 
         pedidos.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+
+
+
+
+
         final FirebaseDatabase firebaseDatabase= FirebaseDatabase.getInstance();
         firebaseDatabase.getReference().child("PEDIDOS").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 ArrayList<DetallepedidoRealmFirebase>dp=new ArrayList<DetallepedidoRealmFirebase>();
                 ArrayList<CremaRealmFirebase>cf=new ArrayList<CremaRealmFirebase>();
                 ArrayList<AdicionalRealmFirebase>ad=new ArrayList<AdicionalRealmFirebase>();
@@ -115,28 +123,29 @@ public class MainActivity extends AppCompatActivity {
                     PedidoRealmFirebase pedidoRealmFirebase=snapshot.getValue(PedidoRealmFirebase.class);
                     pb.add(pedidoRealmFirebase);
                 }
-                new traerpedidos().execute("1");
-                quesemuestra.setText("Pedidos por entregar en la semana");
 
+                String idempresa=prefs.getString("idempresa","");
+
+                new traerpedidos().execute(idempresa);
+                quesemuestra.setText("Pedidos por entregar en la semana");
                 int g=pb.size();
                 String idfirebase="";
-
                 for (int u=0;u<g;u++){
                     idfirebase=pb.get(u).getIdfirebase().toString();
-                    new traerdetallesdepedidofirebase().execute(idfirebase);
+                    new traerdetallesdepedidofirebase().execute(idfirebase,idempresa);
+                    if (u<1){
+                        MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bin);
+                        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mMediaPlayer.start();
+                    }
                   }
-                MediaPlayer mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.bin);
-                mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                mMediaPlayer.start();
-                new cargardescuentos().execute();
-                new cargartiposdepago().execute();
-            }
+          }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
 
-        Button clientes=(Button) findViewById(R.id.clientes);
+        /*Button clientes=(Button) findViewById(R.id.clientes);
         clientes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,8 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
-
-Button buscarorden=(Button) findViewById(R.id.buscarpedido);
+*/
 
         activos=(RadioButton)findViewById(R.id.activas);
         rechazados=(RadioButton)findViewById(R.id.rechazada);
@@ -178,25 +186,30 @@ Button buscarorden=(Button) findViewById(R.id.buscarpedido);
 
 
                     case R.id.activas:
+                        String idempresa=prefs.getString("idempresa","");
 
-                        new traerpedidos().execute("1");
+                        new traerpedidos().execute(idempresa);
                         quesemuestra.setText("Pedidos por entregar en la semana");
 
                         break;
                     case R.id.rechazada:
+                        String idempresa1=prefs.getString("idempresa","");
 
-                        new traerpedidosrechazados().execute("1");
+                        new traerpedidosrechazados().execute(idempresa1);
                         quesemuestra.setText("Pedidos por rechazados en la semana");
                         break;
 
                     case R.id.todasordenes:
+                        String idempresaw=prefs.getString("idempresa","");
 
-new traertodoslospedidos().execute("1");
+new traertodoslospedidos().execute(idempresaw);
                         quesemuestra.setText("Todos los pedidos de la semana");
                         break;
 
                     case R.id.entregada:
-                        new traerpedidosentregados().execute("1");
+                        String idempresaq=prefs.getString("idempresa","");
+
+                        new traerpedidosentregados().execute(idempresaq);
                         quesemuestra.setText("Pedidos entregados en la semana");
                         break;
 
@@ -485,7 +498,9 @@ new traertodoslospedidos().execute("1");
 
                 Uri.Builder builder = new Uri.Builder()
 
-                        .appendQueryParameter("idfirebase", params[0]);
+                        .appendQueryParameter("idfirebase", params[0])
+                        .appendQueryParameter("idempresa", params[1])
+                        ;
 
                 String query = builder.build().getEncodedQuery();
 
@@ -721,7 +736,7 @@ new traertodoslospedidos().execute("1");
                 conne.setDoOutput(true);
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("nombre", params[0]);
+                        .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -802,7 +817,9 @@ new traertodoslospedidos().execute("1");
                          ,json_data.getString("telefono"),
                                  json_data.getString("refrencias"),
                                  json_data.getString("nombreusuariof"),
-                                 json_data.getString("idfacebook"));
+                                 json_data.getString("idfacebook"),
+                                 json_data.getString("idempresa")
+                         );
                     todoslospedidos.add(pedidofirebase);
 
 
@@ -878,7 +895,7 @@ for(int a=0;a<ere;a++){
                 conne.setDoOutput(true);
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("nombre", params[0]);
+                        .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -959,7 +976,9 @@ for(int a=0;a<ere;a++){
                                     ,json_data.getString("telefono"),
                                     json_data.getString("refrencias"),
                                     json_data.getString("nombreusuariof"),
-                                    json_data.getString("idfacebook"));
+                                    json_data.getString("idfacebook"),
+                                    json_data.getString("idempresa")
+                            );
                     todoslospedidos.add(pedidofirebase);
 
 
@@ -1272,7 +1291,7 @@ for(int a=0;a<ere;a++){
                 conne.setDoOutput(true);
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("nombre", params[0]);
+                        .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -1353,7 +1372,9 @@ for(int a=0;a<ere;a++){
                                     ,json_data.getString("telefono"),
                                     json_data.getString("refrencias"),
                                     json_data.getString("nombreusuariof"),
-                                    json_data.getString("idfacebook"));
+                                    json_data.getString("idfacebook"),
+                                    json_data.getString("idempresa")
+                            );
                     todoslospedidos.add(pedidofirebase);
 
 
@@ -1426,7 +1447,7 @@ for(int a=0;a<ere;a++){
                 conne.setDoOutput(true);
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("nombre", params[0]);
+                        .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data
@@ -1507,7 +1528,9 @@ for(int a=0;a<ere;a++){
                                     ,json_data.getString("telefono"),
                                     json_data.getString("refrencias"),
                                     json_data.getString("nombreusuariof"),
-                                    json_data.getString("idfacebook"));
+                                    json_data.getString("idfacebook"),
+                                    json_data.getString("idempresa")
+                            );
                     todoslospedidos.add(pedidofirebase);
 
 

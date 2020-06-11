@@ -7,8 +7,8 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_orange_2"
+        android:layout_height="83dp"
+        android:background="@drawable/ic_bg_topheader"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,24 +62,15 @@
                 android:textColor="@color/colortres" />
         </RadioGroup>
 
-        <Button
-            android:id="@+id/buscarpedido"
-            android:layout_width="24dp"
-            android:layout_height="29dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/places_ic_search" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/quesemuestra"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="TextView"
-        android:textColor="@color/chatotro"
+        android:textColor="@color/colortres"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,55 +106,6 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <Button
-            android:id="@+id/refresca"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/trans"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Productos"
-            android:textColor="@color/colortres"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/clientes"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@color/trans"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Clientes"
-            android:textColor="@color/colortres"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/empresa"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_weight="1"
-            android:background="@color/trans"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Empresa"
-            android:textColor="@color/colortres"
-            android:textSize="18sp" />
-
-
-    </LinearLayout>
+        app:layout_constraintVertical_bias="1.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

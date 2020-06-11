@@ -137,7 +137,7 @@ cremas.setOnClickListener(new View.OnClickListener() {
         protected String doInBackground(String... params) {
 
             try {
-                url = new URL("https://sodapop.pe/sugest/apitraerproductospornombredeappsolounalmacen.php");
+                url = new URL("https://sodapop.pe/sugest/apitraerproductospornombreempresa.php");
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -263,7 +263,7 @@ cremas.setOnClickListener(new View.OnClickListener() {
         protected String doInBackground(String... params) {
 
             try {
-                url = new URL("https://sodapop.pe/sugest/apitraertodoslosproductosporalmacen.php");
+                url = new URL("https://sodapop.pe/sugest/apitraertodoslosproductosporalmacenempresa.php");
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -398,7 +398,7 @@ cremas.setOnClickListener(new View.OnClickListener() {
         protected String doInBackground(String... params) {
 
             try {
-                url = new URL("https://sodapop.pe/sugest/apitraerproductosmaestra.php");
+                url = new URL("https://sodapop.pe/sugest/apitraerproductosmaestraporempresa.php");
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

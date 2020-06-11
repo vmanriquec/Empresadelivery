@@ -7,9 +7,9 @@
             android:radius="45dp" />
 
         <gradient
-                    android:endColor="@color/colorPrimary"
+                    android:endColor="#FFA726"
             android:gradientRadius="45dp"
-            android:startColor="@color/coloruno"
+            android:startColor="#E8D599"
             android:type="linear" />
 
         <!--If your shape requires only one solid color-->

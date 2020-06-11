@@ -1,6 +1,9 @@
 package com.empresadelivery.empresadelivery;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -49,7 +52,19 @@ public class Manejodeusuarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manejodeusuarios);
         todos=(Button)findViewById(R.id.todos);
+        SharedPreferences prefs;
+        String FileName = "myfile";
+        prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
+        String idempresa=prefs.getString("idempresa","");
 
+     Button    listopo=(Button)findViewById(R.id.listopo);
+        listopo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Manejodeusuarios.this, Dashboardempresa.class);
+                startActivity(intent);
+            }
+        });
         MultiAutoCompleteTextView myMultiAutoCompleteTextView
                 = (MultiAutoCompleteTextView)findViewById(
                 R.id.multiAutoCompleteTextView);
@@ -69,7 +84,7 @@ public class Manejodeusuarios extends AppCompatActivity {
 
                 String selected = (String) parent.getItemAtPosition(position);
 
-             new    traeerclientespornombre().execute(selected);
+             new    traeerclientespornombre().execute(selected,idempresa);
 
             }
         });
@@ -78,8 +93,9 @@ public class Manejodeusuarios extends AppCompatActivity {
 
         todos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                new traerproductosporidalmacenidfamilia().execute("1");
+            public void onClick(View v)
+            {
+                new traerproductosporidalmacenidfamilia().execute(idempresa);
             }
         });
 //                Intent ListSong = new Intent(getApplicationContext(), Subirproductos.class);
@@ -90,9 +106,9 @@ public class Manejodeusuarios extends AppCompatActivity {
 
 
 
-        new llenarautocomplete().execute("1");
+        new llenarautocomplete().execute(idempresa);
 
-        new traerproductosporidalmacenidfamilia().execute("1");
+        new traerproductosporidalmacenidfamilia().execute(idempresa);
 
 
     }
@@ -138,6 +154,7 @@ public class Manejodeusuarios extends AppCompatActivity {
                 Uri.Builder builder = new Uri.Builder()
 
                         .appendQueryParameter("nombreusuario", params[0])
+                        .appendQueryParameter("idempresa", params[1])
                         ;
 
                 String query = builder.build().getEncodedQuery();
@@ -274,7 +291,7 @@ public class Manejodeusuarios extends AppCompatActivity {
 
                 Uri.Builder builder = new Uri.Builder()
 
-                        .appendQueryParameter("idusuario", params[0])
+                        .appendQueryParameter("idempresa", params[0])
                         ;
 
                 String query = builder.build().getEncodedQuery();
@@ -408,7 +425,7 @@ public class Manejodeusuarios extends AppCompatActivity {
                 conne.setDoOutput(true);
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
-               .appendQueryParameter("idusuario", params[0]);
+               .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
                 // Open connection for sending data
                 OutputStream os = conne.getOutputStream();
@@ -459,7 +476,6 @@ public class Manejodeusuarios extends AppCompatActivity {
             Usuario meso;
             if (result.equals("no rows")) {
                 Toast.makeText(Manejodeusuarios.this.getApplicationContext(), "no existen datos a mostrar", Toast.LENGTH_LONG).show();
-
             } else {
                 Log.d("pasoresu", result.toString());
                 try {
