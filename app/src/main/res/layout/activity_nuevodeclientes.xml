@@ -22,21 +22,23 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@drawable/fondoparabuscar"
+            android:background="@drawable/fondotarjeta"
             android:orientation="horizontal">
 
             <MultiAutoCompleteTextView
                 android:id="@+id/multiAutoCompleteTextView"
-                android:layout_width="284dp"
-                android:layout_height="58dp"
-                android:layout_marginLeft="13dp"
+                android:layout_width="278dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/fondoparabuscar"
                 android:hint="Busca un Cliente"
+                android:paddingLeft="15dp"
                 tools:ignore="LabelFor" />
 
             <Button
                 android:id="@+id/nuevocliente"
-                android:layout_width="61dp"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -48,14 +50,16 @@
             <Button
                 android:id="@+id/todoslosclientes"
                 android:layout_width="65dp"
-                android:layout_height="wrap_content"
+                android:layout_height="37dp"
                 android:layout_gravity="right|center_horizontal|center_vertical"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/soda" />
+                android:background="@drawable/src_files_emptyproduct"
+                android:text="Todos "
+                android:textColor="@color/colortres" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

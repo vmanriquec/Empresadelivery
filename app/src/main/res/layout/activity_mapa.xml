@@ -23,7 +23,7 @@
         android:id="@+id/atras"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/accent"
+        android:background="@drawable/fondotarjeta"
         android:text="Siguiente"
         android:textColor="@color/colortres"
         app:layout_constraintBottom_toBottomOf="parent"

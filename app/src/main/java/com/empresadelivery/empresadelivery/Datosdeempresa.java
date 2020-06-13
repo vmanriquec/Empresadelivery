@@ -95,7 +95,7 @@ Button guardarempresa;
         setContentView(R.layout.activity_datosdeempresa);
         foto_gallery = (ImageView) findViewById(R.id.foto1);
         Button eleccion = (Button) findViewById(R.id.camara1);
-        Button tipodepago = (Button) findViewById(R.id.tipodepagol);
+
         new cargarrubro().execute();
 
 
@@ -109,6 +109,16 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
             @Override
             public void onClick(View v) {
 
+                BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+
+                // String nombre = prefs.getString("nombreusuariof", "");
+
+                Bundle bundle = new Bundle();
+                bundle.putString("test", "Espera un momento por favor estoy Guardando tu informacion");
+                bundle.putString("nombreusuario", "");
+
+                bottomSheetDialog.setArguments(bundle);
+                bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
                 final FirebaseStorage storage= FirebaseStorage.getInstance();
 

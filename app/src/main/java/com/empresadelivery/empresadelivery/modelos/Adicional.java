@@ -5,11 +5,22 @@ public class Adicional {
     String nombreadicional;
     Double precioadicional;
     String    estadoadicional;
-    public Adicional(int idadicional, String nombreadicional, Double precioadicional, String estadoadicional) {
+    int idempresa;
+
+    public int getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
+    }
+
+    public Adicional(int idadicional, String nombreadicional, Double precioadicional, String estadoadicional, int idempresa) {
         this.idadicional = idadicional;
         this.nombreadicional = nombreadicional;
         this.precioadicional = precioadicional;
         this.estadoadicional = estadoadicional;
+        this.idempresa = idempresa;
     }
 
     @Override

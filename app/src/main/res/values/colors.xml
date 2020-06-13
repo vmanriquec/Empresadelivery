@@ -21,10 +21,11 @@
     <color name="colorocho"> #F6D79C</color>
 
 
-
-    <color name="colorPrimary">#22150F</color>
+    <color name="colorPrimary">#E86800</color>
     <color name="colorPrimaryDark">#22150F</color>
-    <color name="colorAccent">#d03a26</color>
+    <color name="colorAccent">#F79754</color>
+
+
     <color name="chatmio">#ff5722</color>
     <color name="chatotro">#43A047</color>
     <color name="semiTransparentWhite">#40FFFFFF</color>

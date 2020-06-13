@@ -28,7 +28,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Administrartiposdepago"></activity>
+        <activity android:name=".Subircremaempresa"></activity>
+        <activity android:name=".Subiradiconalempresa" />
+        <activity android:name=".Administrartiposdepago" />
         <activity android:name=".EditarEmpresa" />
         <activity android:name=".Dashboardempresa" />
         <activity android:name=".Iniciosistema">

@@ -106,7 +106,16 @@ guardarproducto=(Button)findViewById(R.id.guardarproducto);
 guardarproducto.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
+       // String nombre = prefs.getString("nombreusuariof", "");
+
+        Bundle bundle = new Bundle();
+        bundle.putString("test", "Espera un momento por favor que se cargue tu producto");
+        bundle.putString("nombreusuario", "");
+
+        bottomSheetDialog.setArguments(bundle);
+        bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
         final FirebaseStorage storage= FirebaseStorage.getInstance();
 

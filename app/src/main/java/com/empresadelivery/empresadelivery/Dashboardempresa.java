@@ -102,6 +102,8 @@ dire.setText(direccionempresa);
 
     });
 
+
+
         CardView cardtiposdepago=(CardView) findViewById(R.id.cardtiposdepagoair);
         cardtiposdepago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,13 +115,34 @@ dire.setText(direccionempresa);
 
 
         });
+        CardView cardcf=(CardView) findViewById(R.id.cardh);
+        cardcf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboardempresa.this, Subiradiconalempresa.class);
+                startActivity(intent);
 
+            }
+
+
+        });
 
         CardView cardcliente=(CardView) findViewById(R.id.cardclientes);
         cardcliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboardempresa.this, Manejodeusuarios.class);
+                startActivity(intent);
+
+            }
+
+
+        });
+        CardView cardcr=(CardView) findViewById(R.id.cardcrema);
+        cardcr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboardempresa.this, Subircremaempresa.class);
                 startActivity(intent);
 
             }

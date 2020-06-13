@@ -79,18 +79,8 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="3dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:text="cliente:"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
                         android:id="@+id/nombrecliente"
-                        android:layout_width="wrap_content"
+                        android:layout_width="168dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left|center_vertical"
                         android:layout_marginLeft="5dp"
@@ -111,8 +101,10 @@
                         android:id="@+id/muestrapedido"
                         android:layout_width="6dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
                         android:layout_weight="1"
-                        android:background="@drawable/verpedido" />
+                        android:background="@drawable/src_files_orderselect" />
 
                 </LinearLayout>
 
@@ -121,15 +113,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/txtf"
-                        android:layout_width="12dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:text="Direccion" />
 
                     <TextView
                         android:id="@+id/direccion"
@@ -149,16 +132,6 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/textView8"
-                        android:layout_width="56dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:gravity="left|center_vertical"
-                        android:text="Referencia" />
 
                     <TextView
                         android:id="@+id/referencias"
@@ -184,7 +157,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="left|center_vertical"
-                        android:text="Pagas con  " />
+                        android:text="Paga  " />
 
                     <TextView
                         android:id="@+id/cuantopaga"
@@ -221,7 +194,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
@@ -263,15 +235,15 @@
 
                 <Button
                     android:id="@+id/mapau22"
-                    android:layout_width="51dp"
-                    android:layout_height="43dp"
+                    android:layout_width="34dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="right"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="3dp"
                     android:layout_weight="1"
-                    android:background="@drawable/gps"
+                    android:background="@drawable/voygps"
                     android:paddingLeft="5dp"
                     android:paddingTop="5dp"
                     android:paddingRight="5dp"
@@ -298,23 +270,23 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@color/trans"
-                    android:text="Rechazar orden"
+                    android:text="Rechazar "
                     android:textColor="@color/coloruno" />
 
                 <Button
                     android:id="@+id/ordenentragadab"
-                    android:layout_width="147dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="157dp"
+                    android:layout_height="36dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@color/trans"
-                    android:text="Orden Entregada"
+                    android:text="Entregar"
                     android:textColor="@color/coloruno" />
 
                 <Button
                     android:id="@+id/watsapp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="5dp"
+                    android:layout_height="34dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="3dp"

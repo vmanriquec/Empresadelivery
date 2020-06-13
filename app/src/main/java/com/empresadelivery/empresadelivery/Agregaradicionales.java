@@ -74,7 +74,12 @@ Switch estadocrema;
        String nombreproducto = datos.getString("nombreproducto");
         cabeceralayoutadicional=(TextView)findViewById(R.id.cabeceralayoutadicional);
         cabeceralayoutadicional.setText(nombreproducto);
-        new traeradicional().execute("17");
+        prefs =getApplication().getSharedPreferences(FileName, Context.MODE_PRIVATE);
+        String idempresa = prefs.getString("idempresa", "");
+
+
+
+        new traeradicional().execute(idempresa);
        //new traercremas().execute("17");
 listo.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -190,7 +195,7 @@ listo.setOnClickListener(new View.OnClickListener() {
                     JSONArray jArray = new JSONArray(result);
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.optJSONObject(i);
-                        mesocrema = new Crema(json_data.getInt("idcrema"), json_data.getString("nombrecrema"),  json_data.getString("estadocrema"));
+                        mesocrema = new Crema(json_data.getInt("idcrema"), json_data.getString("nombrecrema"),  json_data.getString("estadocrema"),json_data.getInt("idempresa"));
                         peoplecrema.add(mesocrema);
                     }
 
@@ -294,7 +299,7 @@ listo.setOnClickListener(new View.OnClickListener() {
                 conne.setDoInput(true);
                 conne.setDoOutput(true);
                 Uri.Builder builder = new Uri.Builder()
-                        .appendQueryParameter("idproducto", params[0]);
+                        .appendQueryParameter("idempresa", params[0]);
                 String query = builder.build().getEncodedQuery();
                 // Open connection for sending data
                 OutputStream os = conne.getOutputStream();
@@ -356,7 +361,8 @@ listo.setOnClickListener(new View.OnClickListener() {
                     JSONArray jArray = new JSONArray(result);
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.optJSONObject(i);
-                        mesoadiconal = new Adicional(json_data.getInt("idadicional"), json_data.getString("nombreadicional"), json_data.getDouble("precioadicional"), json_data.getString("estadoadicional"));
+                        mesoadiconal = new Adicional(json_data.getInt("idadicional"), json_data.getString("nombreadicional"), json_data.getDouble("precioadicional"), json_data.getString("estadoadicional"),
+                                json_data.getInt("idempresa"));
                         peopleadicional.add(mesoadiconal);
                     }
                     LinearLayout my_layout = (LinearLayout)findViewById(R.id.my_layout);

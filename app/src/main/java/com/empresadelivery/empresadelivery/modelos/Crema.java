@@ -3,6 +3,7 @@ package com.empresadelivery.empresadelivery.modelos;
 public class Crema {
     int idcrema;
     String nombrecrema;
+    int idempresa;
 
     @Override
     public String toString() {
@@ -35,10 +36,19 @@ public class Crema {
         this.estadocrema = estadocrema;
     }
 
-    public Crema(int idcrema, String nombrecrema, String estadocrema) {
+    public int getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
+    }
+
+    public Crema(int idcrema, String nombrecrema, String estadocrema, int idempresa) {
         this.idcrema = idcrema;
         this.nombrecrema = nombrecrema;
         this.estadocrema = estadocrema;
+        this.idempresa = idempresa;
     }
 
     String estadocrema;

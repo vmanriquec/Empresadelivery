@@ -6,9 +6,12 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="83dp"
-        android:background="@drawable/ic_bg_topheader"
+        android:layout_width="408dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/fondoparabuscar"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,6 +24,10 @@
             android:id="@+id/todoradio"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -31,7 +38,7 @@
                 android:layout_weight="1"
                 android:checked="true"
                 android:text="Activo"
-                android:textColor="@color/colortres" />
+                android:textColor="@color/colorPrimary" />
 
             <RadioButton
                 android:id="@+id/entregada"
@@ -39,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Entregado"
-                android:textColor="@color/colortres" />
+                android:textColor="@color/colorPrimary" />
 
             <RadioButton
                 android:id="@+id/rechazada"
@@ -48,7 +55,7 @@
                 android:layout_weight="1"
                 android:shadowColor="@color/fondito"
                 android:text="Rechazado"
-                android:textColor="@color/colortres"
+                android:textColor="@color/colorPrimary"
                 android:textColorHighlight="@color/fbutton_color_wisteria"
                 android:textColorHint="@color/abc_search_url_text_normal"
                 android:textColorLink="@color/coloramarilloprincipal" />
@@ -59,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Todos"
-                android:textColor="@color/colortres" />
+                android:textColor="@color/colorPrimary" />
         </RadioGroup>
 
     </LinearLayout>
@@ -67,22 +74,27 @@
     <TextView
         android:id="@+id/quesemuestra"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_height="35dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/fondotarjeta"
+        android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/colortres"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.053" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="406dp"
-        android:layout_height="618dp"
+        android:layout_width="0dp"
+        android:layout_height="575dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
@@ -93,19 +105,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.579" />
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/btn_orange_2"
-        android:gravity="center_horizontal|left"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
