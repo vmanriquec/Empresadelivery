@@ -99,8 +99,9 @@ almacen =(Spinner) findViewById(R.id.spinnerio);
 
 guardarproducto=(Button)findViewById(R.id.guardarproducto);
         new cargaralmacen().execute();
+        String idempresa = prefs.getString("idempresa", "");
 
-        new cargarfamilias().execute();
+        new cargarfamilias().execute(idempresa);
 
 
 guardarproducto.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +114,8 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
         Bundle bundle = new Bundle();
         bundle.putString("test", "Espera un momento por favor que se cargue tu producto");
         bundle.putString("nombreusuario", "");
+        bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
+
 
         bottomSheetDialog.setArguments(bundle);
         bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
@@ -437,7 +440,7 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
         protected String doInBackground(String... params) {
             Spinner  spin=(Spinner) findViewById(R.id.spinnerio2);
             try {
-                url = new URL("https://www.sodapop.pe/sugest/apitraertodalasfamilias.php");
+                url = new URL("https://www.sodapop.pe/sugest/apitraertodaslasfamiliasporempresa.php");
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -450,6 +453,22 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
                 conn.setRequestMethod("GET");
                 conn.setDoOutput(true);
                 conn.connect();
+
+                // Append parameters to URL
+                Uri.Builder builder = new Uri.Builder()
+
+                        .appendQueryParameter("idempresa", params[0]);
+                String query = builder.build().getEncodedQuery();
+                // Open connection for sending data
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conn.connect();
+
             } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
@@ -493,8 +512,14 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
                     JSONArray jArray = new JSONArray(result);
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.getJSONObject(i);
+;
+
                        // dataList.add(json_data.getString("nombrealm"));
-                        mes = new Familia(json_data.getInt("idfamilia"), json_data.getString("nombrefamilia"));
+                        mes = new Familia(
+                                json_data.getInt("idfamilia"),
+json_data.getInt("idempresa"),
+                                json_data.getString("nombrefamilia"),
+                                json_data.getString("estadofamilia"));
                         listaalmacen.add(mes);
                     }
                     strArrData = dataList.toArray(new String[dataList.size()]);

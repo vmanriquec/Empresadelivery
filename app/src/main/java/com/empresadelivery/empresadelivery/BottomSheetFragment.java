@@ -32,14 +32,14 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         TextView edit_text =(TextView) contentView.findViewById(R.id.cabecerashet);
         TextView nombreusuario =(TextView) contentView.findViewById(R.id.nombreusuarioshet);
         ImageView imagencito =(ImageView) contentView.findViewById(R.id.imageView4);
-        Glide.with(getContext()).
-                load("https://www.sodapop.pe/ii.gif").into(imagencito);
 
         Bundle bundle = getArguments();
+        String imagen = bundle.getString("imagen");
+
         String test = bundle.getString("test");
         String usuario = bundle.getString("nombreusuario");
-
-
+        Glide.with(getContext()).
+                load(imagen).into(imagencito);
         nombreusuario.setText(usuario);
 
 

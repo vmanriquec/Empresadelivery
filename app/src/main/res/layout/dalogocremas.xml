@@ -6,52 +6,65 @@
     android:layout_height="match_parent">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageVieww"
-        android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:background="@drawable/blue_leftcorner_bkg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/imageVieww"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:background="@drawable/fondotarjeta"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Registro de Familias"
+            android:textColor="@color/colortres"
+            android:textSize="16dp" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="59dp"
-        android:layout_height="62dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/verpedido" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewfamilial"
+            android:layout_width="match_parent"
+            android:layout_height="605dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp" />
 
-    <Button
-        android:id="@+id/vaallistado"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/accent"
-        android:text="Listo"
-        android:textColor="@color/colortres"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/ingresanomberfamilia"
+                android:layout_width="305dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nombre Familia"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/grabarfamilia"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_weight="1"
+                android:background="@drawable/botondegradado"
+                android:text="Grabar"
+                android:textColor="@color/colortres" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/vaadashboard"
+            android:layout_width="match_parent"
+            android:layout_height="41dp"
+            android:background="@drawable/fondotarjeta"
+            android:text="Listo"
+            android:textColor="@color/colortres" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

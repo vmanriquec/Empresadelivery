@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.empresadelivery.empresadelivery.modelos.Adicional;
 import com.empresadelivery.empresadelivery.modelos.Crema;
 import com.empresadelivery.empresadelivery.modelos.Productoadicional;
+import com.empresadelivery.empresadelivery.modelos.Productocrema;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -80,6 +81,7 @@ Switch estadocrema;
 
 
         new traeradicional().execute(idempresa);
+        new traercrema().execute(idempresa);
        //new traercremas().execute("17");
 listo.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -90,186 +92,7 @@ listo.setOnClickListener(new View.OnClickListener() {
     }
 });
     }
-
-
-    private class traercremas extends AsyncTask<String, String, String> {
-        ProgressDialog pdLoading = new ProgressDialog(Agregaradicionales.this);
-        HttpURLConnection conne;
-        URL url = null;
-        ArrayList<Adicional> listadeadicionales = new ArrayList<Adicional>();
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pdLoading.setMessage("\tCargando Cremas disponibles");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
-
-        }
-
-        @Override
-        protected String doInBackground(String... params) {
-
-
-            try {
-                url = new URL("https://sodapop.pe/sugest/apitraertodaslascremas.php");
-            } catch (MalformedURLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                return e.toString();
-            }
-            try {
-                conne = (HttpURLConnection) url.openConnection();
-                conne.setReadTimeout(READ_TIMEOUT);
-                conne.setConnectTimeout(CONNECTION_TIMEOUT);
-                conne.setRequestMethod("POST");
-                conne.setDoInput(true);
-                conne.setDoOutput(true);
-
-                // Append parameters to URL
-
-
-                Uri.Builder builder = new Uri.Builder()
-
-                        .appendQueryParameter("idproducto", params[0]);
-
-                String query = builder.build().getEncodedQuery();
-
-                // Open connection for sending data
-                OutputStream os = conne.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-                conne.connect();
-
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
-                return e1.toString();
-            }
-            try {
-                int response_code = conne.getResponseCode();
-                if (response_code == HttpURLConnection.HTTP_OK) {
-                    InputStream input = conne.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
-                    StringBuilder result = new StringBuilder();
-                    String line;
-
-                    while ((line = reader.readLine()) != null) {
-                        result.append(line);
-
-                    }
-                    return (
-
-                            result.toString()
-
-
-                    );
-
-                } else {
-                    return ("Connection error");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-
-                return e.toString();
-            } finally {
-                conne.disconnect();
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            pdLoading.dismiss();
-            ArrayList<Crema> peoplecrema = new ArrayList<>();
-            String[] strcrema = {"No Suggestions"};
-            ArrayList<String> datalistcrema = new ArrayList<String>();
-            Crema mesocrema;
-            peoplecrema.clear();
-            if (result.equals("no rows")) {
-            } else {
-                try {
-                    JSONArray jArray = new JSONArray(result);
-                    for (int i = 0; i < jArray.length(); i++) {
-                        JSONObject json_data = jArray.optJSONObject(i);
-                        mesocrema = new Crema(json_data.getInt("idcrema"), json_data.getString("nombrecrema"),  json_data.getString("estadocrema"),json_data.getInt("idempresa"));
-                        peoplecrema.add(mesocrema);
-                    }
-
-
-                    LinearLayout my_layout = (LinearLayout)findViewById(R.id.my_layout);
-                    strcrema = datalistcrema.toArray(new String[datalistcrema.size()]);
-                    TextView texto = new TextView(getApplication());
-                    texto.setText("        ESCOGE TUS CREMAS        ");
-                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.blue_leftcorner_bkg));
-                    texto.setGravity(Gravity.CENTER);
-
-                    //  texto.setLayoutParams(param);
-                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-                    texto.setTypeface(null, Typeface.BOLD);
-                    texto.setShadowLayer(2, 1, 1, R.color.accent);
-                    texto.setTextColor(getApplication().getResources().getColor(R.color.colortres));
-
-
-                    TableRow.LayoutParams textoenlayout = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
-                    my_layout.addView(texto, textoenlayout);
-
-                    int numerodecrema;
-
-
-
-                    for(numerodecrema= 0; numerodecrema < peoplecrema.size(); numerodecrema++) {
-                        CheckBox cbc = new CheckBox(getApplication());
-                        cbc.setText("   "+peoplecrema.get(numerodecrema).getNombrecrema());
-                        cbc.setId(numerodecrema+1);
-
-
-
-                        int idcremita=peoplecrema.get(numerodecrema).getIdcrema();
-                        String nombrecremita=peoplecrema.get(numerodecrema).getNombrecrema();
-
-
-                        cbc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView,
-                                                         final boolean isChecked) {
-
-                                CharSequence options[];
-
-                                if (isChecked) {
-                                  //  realgrabarcrema(nombrecremita,Integer.parseInt(idproductoseleccionado));
-
-
-                                } else {
-
-
-                                    //eliminaracrema(idsupremodedetalle,Integer.parseInt(idproductoseleccionado),nombrecremita);
-                                }
-                            }});
-
-
-
-                        my_layout.addView(cbc);
-                    }
-
-
-
-
-
-
-
-
-                } catch (JSONException e) {
-                    Log.d("erroro",e.toString());
-                }
-            }
-        }
-    }
-
-    private class traeradicional extends AsyncTask<String, String, String> {
+  private class traeradicional extends AsyncTask<String, String, String> {
         HttpURLConnection conne;
         ProgressDialog pdLoading = new ProgressDialog(Agregaradicionales.this);
         URL url = null;
@@ -413,17 +236,7 @@ Switch lo=(Switch)findViewById(R.id.estadocrema);
                                 if (isChecked) {
 
 
-                                    lo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                            if (isChecked) {
-                                                // The toggle is enabled
-                                                crem="1";
-                                            } else {
-                                                // The toggle is disabled
-                                                crem="0";
-                                            }
-                                        }
-                                    });
+
                                     ;
                                     //String preciodeadicional=String.valueOf(peopleadicional.get(numerodeadiciones).getPrecioadicional());
 Productoadicional yu=new Productoadicional(1,ou,ida,crem);
@@ -671,6 +484,380 @@ Productoadicional yu=new Productoadicional(1,ou,ida,crem);
 
     }
 
+
+
+
+
+    private class traercrema extends AsyncTask<String, String, String> {
+        HttpURLConnection conne;
+        ProgressDialog pdLoading = new ProgressDialog(Agregaradicionales.this);
+        URL url = null;
+        ArrayList<Crema> listadeadicionales = new ArrayList<Crema>();
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pdLoading.setMessage("\tCargando Acompañantes");
+            pdLoading.setCancelable(false);
+            pdLoading.show();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                url = new URL("https://sodapop.pe/sugest/apitraertodoslascremasporempresa.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return e.toString();
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("POST");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("idempresa", params[0]);
+                String query = builder.build().getEncodedQuery();
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return e1.toString();
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+                    return (
+
+                            result.toString()
+
+                    );
+                } else {
+                    return ("Connection error");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return e.toString();
+
+            } finally {
+                conne.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("paso",result.toString());
+            pdLoading.dismiss();
+            ArrayList<Crema> peopleadicional = new ArrayList<>();
+            String[] stradicional = {"No Suggestions"};
+            ArrayList<String> datalistadicional = new ArrayList<String>();
+
+
+            Crema mesoadiconal;
+            peopleadicional.clear();
+            RecyclerView.Adapter adapteradicional;
+
+            if (result.equals("no rows")) {
+            } else {
+                try {
+                    JSONArray jArray = new JSONArray(result);
+                    for (int i = 0; i < jArray.length(); i++) {
+
+
+                        JSONObject json_data = jArray.optJSONObject(i);
+                        mesoadiconal = new Crema(
+                                json_data.getInt("idcrema"), json_data.getString("nombrecrema"),
+                                json_data.getString("estadocrema"), json_data.getInt("idempresa"));
+                        peopleadicional.add(mesoadiconal);
+                    }
+                    LinearLayout mylayout = (LinearLayout)findViewById(R.id.mylayout1);
+                    stradicional = datalistadicional.toArray(new String[datalistadicional.size()]);
+                    TextView texto = new TextView(getApplication());
+                    texto.setText("        Agrega algun Acompañante        ");
+                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.blue_leftcorner_bkg));
+                    texto.setGravity(Gravity.CENTER);
+                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+                    texto.setTypeface(null, Typeface.BOLD);
+                    texto.setShadowLayer(2, 1, 1, R.color.accent);
+                    texto.setTextColor(getApplication().getResources().getColor(R.color.colortres));
+                    TableRow.LayoutParams textoenlayout = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
+                    mylayout.addView(texto, textoenlayout);
+
+
+                    for( numerodeadiciones= 0; numerodeadiciones < peopleadicional.size(); numerodeadiciones++) {
+                        CheckBox cb = new CheckBox(getApplication());
+                        cb.setText("   "+peopleadicional.get(numerodeadiciones).getNombrecrema());
+
+
+                        final int ida=peopleadicional.get(numerodeadiciones).getIdcrema();
+                        cb.setId(numerodeadiciones);
+                        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView,
+                                                         final boolean isChecked) {
+                                CharSequence options[];
+                                prefs = getApplicationContext().getSharedPreferences(FileName, Context.MODE_PRIVATE);
+                                String idproductom=prefs.getString("idproducto","");
+                                int ou=Integer.parseInt(idproductom);
+
+                                if (isChecked) {
+                                    String idempresa = prefs.getString("idempresa", "");
+
+                                    Productocrema yu=new Productocrema(1,ou,ida,"1",Integer.parseInt(idempresa));
+                                    new grabarcremaemp().execute(yu);
+
+                                }else{
+
+                                    String idempresa = prefs.getString("idempresa", "");
+
+                                    Productocrema yu=new Productocrema(1,ou,ida,"1",Integer.parseInt(idempresa));
+                                    new eliminarcrema().execute(yu);
+
+
+
+
+                                }
+
+
+
+
+                            }});
+
+
+
+                        mylayout.addView(cb);
+                    }
+
+                } catch (JSONException e) {
+                    Log.d("erroro",e.toString());
+                }
+            }
+        }
+
+    }
+
+
+    public class eliminarcrema extends AsyncTask<Productocrema, Void, String> {
+        String resultado;
+        HttpURLConnection conne;
+        URL url = null;
+        Productocrema ped;
+        ProgressDialog pdLoading = new ProgressDialog(Agregaradicionales.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pdLoading.setMessage("\teliminando accion..");
+            pdLoading.setCancelable(false);
+            pdLoading.show();
+
+        }
+
+        @Override
+        protected String doInBackground(Productocrema... params) {
+            ped=params[0];
+            try {
+                url = new URL("https://sodapop.pe/sugest/apieliminarcremaempresa.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return null;
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("GET");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+
+                Uri.Builder builder = new Uri.Builder()
+
+
+
+                        .appendQueryParameter("idproducto",String.valueOf(ped.getIdproducto()))
+                        .appendQueryParameter("idcrema", String.valueOf(ped.getIdcrema()))
+                        .appendQueryParameter("estadocrema",String.valueOf(ped.getEstadoproductocrema()))
+                        .appendQueryParameter("idempresa",String.valueOf(ped.getIdempresa()))
+
+
+                        ;
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                Log.d("cirio",e1.toString());
+                return null;
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+
+                    }
+                    resultado=result.toString();
+                    Log.d("paso",resultado.toString());
+                    return resultado;
+
+                } else {
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace()                ;
+                Log.d("cirio2",e.toString());
+                return null;
+            } finally {
+                conne.disconnect();
+            }
+            Log.d("cirio3",resultado);
+            return resultado;
+
+        }
+        @Override
+        protected void onPostExecute(final String resultado) {
+            pdLoading.dismiss();
+            super.onPostExecute(resultado);
+
+
+
+
+        }
+    }
+    public class grabarcremaemp extends AsyncTask<Productocrema, Void, String> {
+        String resultado;
+        HttpURLConnection conne;
+        URL url = null;
+        Productocrema ped;
+        ProgressDialog pdLoading = new ProgressDialog(Agregaradicionales.this);
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pdLoading.setMessage("\tAsignando accion..");
+            pdLoading.setCancelable(false);
+            pdLoading.show();
+
+        }
+
+        @Override
+        protected String doInBackground(Productocrema... params) {
+            ped=params[0];
+            try {
+                url = new URL("https://sodapop.pe/sugest/apigrabarcremaproductoempresa.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return null;
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("GET");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+
+                Uri.Builder builder = new Uri.Builder()
+
+                        .appendQueryParameter("idproducto",String.valueOf(ped.getIdproducto()))
+                        .appendQueryParameter("idcrema", String.valueOf(ped.getIdcrema()))
+                        .appendQueryParameter("idempresa",String.valueOf(ped.getIdempresa()))
+
+
+                        ;
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                Log.d("cirio",e1.toString());
+                return null;
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+
+                    }
+                    resultado=result.toString();
+                    Log.d("paso",resultado.toString());
+                    return resultado;
+
+                } else {
+
+                }
+            } catch (IOException e) {
+                e.printStackTrace()                ;
+                Log.d("cirio2",e.toString());
+                return null;
+            } finally {
+                conne.disconnect();
+            }
+            Log.d("cirio3",resultado);
+            return resultado;
+
+        }
+        @Override
+        protected void onPostExecute(final String resultado) {
+            pdLoading.dismiss();
+            super.onPostExecute(resultado);
+
+
+
+
+        }
+    }
 
 
 }

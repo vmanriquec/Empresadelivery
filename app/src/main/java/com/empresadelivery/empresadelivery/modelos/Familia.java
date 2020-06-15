@@ -6,15 +6,19 @@ package com.empresadelivery.empresadelivery.modelos;
  */
 public class Familia {
     private int idfamilia;
-    private String nombrefamilia;
 
-    public Familia(int idfamilia, String nombrefamilia)
-    {
-        super();
-        this.idfamilia=idfamilia;
-        this.nombrefamilia=nombrefamilia;
-
+    public Familia(int idfamilia, int idempresa, String nombrefamilia, String estadofamilia) {
+        this.idfamilia = idfamilia;
+        this.idempresa = idempresa;
+        this.nombrefamilia = nombrefamilia;
+        this.estadofamilia = estadofamilia;
     }
+
+    private int idempresa;
+    private String nombrefamilia;
+private String estadofamilia;
+
+
     public int getIdfamilia() {
         return idfamilia;
     }
@@ -23,12 +27,28 @@ public class Familia {
         this.idfamilia = idfamilia;
     }
 
+    public int getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
+    }
+
     public String getNombrefamilia() {
         return nombrefamilia;
     }
 
     public void setNombrefamilia(String nombrefamilia) {
         this.nombrefamilia = nombrefamilia;
+    }
+
+    public String getEstadofamilia() {
+        return estadofamilia;
+    }
+
+    public void setEstadofamilia(String estadofamilia) {
+        this.estadofamilia = estadofamilia;
     }
 
     @Override

@@ -1101,7 +1101,7 @@ for(int a=0;a<ere;a++){
 
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.getJSONObject(i);
-                        mes = new Descuentos(json_data.getInt("idvaledescuento"), json_data.getString("nombredescuento"), json_data.getString("montodescuento"), json_data.getString("estadodescuento"));
+                        mes = new Descuentos(json_data.getInt("idvaledescuento"), json_data.getString("nombredescuento"), json_data.getString("montodescuento"), json_data.getString("estadodescuento"), json_data.getInt("idempresa"));
                         grabatodoslosdecuentos(mes.getIdvaledescuento(),mes.getNombredescuento(),mes.getMontodescuento(),mes.getEstadodescuento());
                     }
 

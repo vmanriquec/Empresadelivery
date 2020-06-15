@@ -49,14 +49,14 @@
                 android:id="@+id/razonsociall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint=" Razon soc. de tu empresa" />
+                android:hint=" Razon soc. de tu empresa(Obligatorio)" />
 
             <EditText
                 android:id="@+id/direccionempresal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Direccion  de tu empresa"
+                android:hint="Direccion  de tu empresa(Obligatorio)"
                 android:inputType="textPersonName" />
 
             <EditText
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Telefono de tu Empresa"
+                android:hint="Telefono de tu Empresa(Obligatorio))"
                 android:inputType="number" />
 
             <EditText
@@ -141,10 +141,12 @@
                 android:hint="tiempo promedio que se demora el delivery"
                 android:inputType="number|textPersonName" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/costodeliveryempresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:hint="Costo de tu delivery(Obligatorio)"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/guardarproducto2"

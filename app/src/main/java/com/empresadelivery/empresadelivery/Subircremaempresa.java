@@ -62,12 +62,29 @@ public class Subircremaempresa extends AppCompatActivity {
         guardarademp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String idempresa = prefs.getString("idempresa", "");
+ if (nombrecrem.getText().toString().equals("")){
 
-                Crema adie=new Crema(1,nombrecrem.getText().toString(),"1",Integer.parseInt(idempresa));
-                new grabaradicionalempresa().execute(adie);
-                nombrecrem.setText("");
 
+
+     BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+     Bundle bundle = new Bundle();
+     bundle.putString("test", "debes agregar un nombre");
+     bundle.putString("nombreusuario", "");
+     bundle.putString("imagen", getResources().getString(R.string.gifadmiracion));
+
+
+     bottomSheetDialog.setArguments(bundle);
+     bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+
+
+ }
+     else {
+     Crema adie = new Crema(1, nombrecrem.getText().toString(), "1", Integer.parseInt(idempresa));
+     new grabaradicionalempresa().execute(adie);
+     nombrecrem.setText("");
+ }
             }
         });
     }

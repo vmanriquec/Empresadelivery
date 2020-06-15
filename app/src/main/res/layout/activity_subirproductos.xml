@@ -30,22 +30,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:text="Selecciona Local"
-        android:textColor="@color/accent"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
@@ -63,8 +47,8 @@
 
     <Spinner
         android:id="@+id/spinnerio"
-        android:layout_width="211dp"
-        android:layout_height="37dp"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/materialTextField2"
         android:layout_alignEnd="@+id/materialTextField2"
         android:layout_weight="1"

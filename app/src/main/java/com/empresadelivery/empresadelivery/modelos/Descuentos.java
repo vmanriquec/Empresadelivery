@@ -5,6 +5,16 @@ public class Descuentos {
    String nombredescuento;
    String montodescuento;
    String estadodescuento;
+   int idempresa;
+
+
+    public int getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
+    }
 
     public int getIdvaledescuento() {
         return idvaledescuento;
@@ -38,11 +48,12 @@ public class Descuentos {
         this.estadodescuento = estadodescuento;
     }
 
-    public Descuentos(int idvaledescuento, String nombredescuento, String montodescuento, String estadodescuento) {
+    public Descuentos(int idvaledescuento, String nombredescuento, String montodescuento, String estadodescuento,int idempresa) {
         this.idvaledescuento = idvaledescuento;
         this.nombredescuento = nombredescuento;
         this.montodescuento = montodescuento;
         this.estadodescuento = estadodescuento;
+        this.idempresa = idempresa;
     }
     @Override
     public String toString(){return String.valueOf(idvaledescuento)+" - "+ String.valueOf(nombredescuento)+" - "+String.valueOf(montodescuento);

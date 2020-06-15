@@ -1,17 +1,22 @@
 package com.empresadelivery.empresadelivery;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +24,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.empresadelivery.empresadelivery.adaptadores.Adaptadorfamilia;
 import com.empresadelivery.empresadelivery.adaptadores.Adaptadormaestraproducto;
+import com.empresadelivery.empresadelivery.modelos.Familia;
 import com.empresadelivery.empresadelivery.modelos.Productos;
 
 import org.json.JSONArray;
@@ -96,27 +103,15 @@ Button cremas=(Button)findViewById(R.id.cremas);
                 Listaproductos.this.startActivity(ListSong);
             }
         });
-
-
-
-
-
-
         new llenarautocomplete().execute(idempresa);
 
         new traerproductosporidalmacenidfamilia().execute(idempresa);
 cremas.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-
-
-
-        final Dialog dialog = new Dialog(v.getRootView().getContext());
-        dialog.setContentView(R.layout.doalogodescuento);
-
-
-        dialog.show();
-
+        Intent intent = new Intent(Listaproductos.this, Subirfamilia.class);
+        startActivity(intent);
+   //     new Traertodaslasfamiliasendialogo().execute(idempresa);
     }
 });
     }
@@ -515,4 +510,9 @@ cremas.setOnClickListener(new View.OnClickListener() {
         }
 
     }
+
+
+
+
+
 }

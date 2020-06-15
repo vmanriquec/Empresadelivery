@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Subircremaempresa">
+    tools:context=".Subirnombresdedescuentos">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView15c"
+                android:id="@+id/textView154c"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
                 android:background="@drawable/fondotarjeta"
@@ -30,7 +30,7 @@
                 android:textSize="18sp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclercremaempresa"
+                android:id="@+id/recyclerdescuentosempresa"
                 android:layout_width="match_parent"
                 android:layout_height="543dp"
                 android:layout_marginLeft="5dp"
@@ -46,33 +46,37 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/ppc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Nombre" />
 
                     <EditText
-                        android:id="@+id/nombrecremaempresal"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/nombredescuentol"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Nombre de Crema"
+                        android:hint="Nombre de Descuento"
+                        android:inputType="textPersonName" />
+
+                    <EditText
+                        android:id="@+id/preciodescuentol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Nombre de Descuento"
                         android:inputType="textPersonName" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <Button
-                android:id="@+id/guardarcremaempresa"
+                android:id="@+id/guardardescuentoempresa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/fondotarjeta"
-                android:text="Guardar" />
+                android:text="Guardar"
+                android:textColor="@color/colortres" />
         </LinearLayout>
     </ScrollView>
 

@@ -104,6 +104,7 @@ dire.setText(direccionempresa);
 
 
 
+
         CardView cardtiposdepago=(CardView) findViewById(R.id.cardtiposdepagoair);
         cardtiposdepago.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +133,20 @@ dire.setText(direccionempresa);
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Dashboardempresa.this, Manejodeusuarios.class);
+                startActivity(intent);
+
+            }
+
+
+        });
+
+
+
+        CardView descuento=(CardView) findViewById(R.id.otro2);
+        descuento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Dashboardempresa.this, Subirnombresdedescuentos.class);
                 startActivity(intent);
 
             }
@@ -240,7 +255,7 @@ dire.setText(direccionempresa);
 
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.getJSONObject(i);
-                        mes = new Descuentos(json_data.getInt("idvaledescuento"), json_data.getString("nombredescuento"), json_data.getString("montodescuento"), json_data.getString("estadodescuento"));
+                        mes = new Descuentos(json_data.getInt("idvaledescuento"), json_data.getString("nombredescuento"), json_data.getString("montodescuento"), json_data.getString("estadodescuento"), json_data.getInt("idempresa"));
                         grabatodoslosdecuentos(mes.getIdvaledescuento(),mes.getNombredescuento(),mes.getMontodescuento(),mes.getEstadodescuento());
                     }
 

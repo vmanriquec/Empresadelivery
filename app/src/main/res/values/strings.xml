@@ -28,4 +28,11 @@
     <string name="title_activity_menusmaestras">Menusmaestras</string>
     <string name="title_activity_menusadministracion">Menusadministracion</string>
     <string name="title_activity_menus">Menus</string>
+
+
+    <string name="gifconejo">"https://www.sodapop.pe/ii.gif"</string>
+    <string name="gifgps">"https://www.sodapop.pe/aqui.gif"</string>
+    <string name="gifadmiracion">"https://www.sodapop.pe/hey.gif"</string>
+
+
 </resources>

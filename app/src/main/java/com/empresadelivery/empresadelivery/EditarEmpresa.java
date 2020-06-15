@@ -87,7 +87,7 @@ public class EditarEmpresa extends AppCompatActivity {
     public static final int REQUEST_CODE_TAKE_PHOTO = 0 /*1*/;
 TextView razonsociale,direccione,telefonoe,
         correoe,paginae,slogane,administradore,
-        teladministradore, montomine,tiempoe,rubrotraido;
+        teladministradore, montomine,tiempoe,rubrotraido,costodely;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +112,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
         Button eleccion = (Button) findViewById(R.id.camara1e);
         foto_gallery = (ImageView) findViewById(R.id.foto1e);
         rubrotraido = (TextView) findViewById(R.id.rubrotraido);
-
+        costodely=(TextView)findViewById(R.id.costodeliveryempresa2);
 
         Picasso.get().load(imagenempresa).transform(new CropSquareTransformation()).resize(200, 200)
                 .into( foto_gallery);
@@ -193,7 +193,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                 TextView teleadmin=(TextView)findViewById(R.id.telefonoadministradorle);
                 TextView montomin=(TextView)findViewById(R.id.montominimole);
                 TextView tiempodem=(TextView)findViewById(R.id.demoraempresale);
-
+                TextView costodely=(TextView)findViewById(R.id.costodeliveryempresa2);
 
                 String razonsocialempresa=razon.getText().toString();
                 String direccionempresa=dire.getText().toString();
@@ -205,6 +205,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                 String telefonoadministradorempresa=teleadmin.getText().toString();
                 String montominimodeliveryempresa=montomin.getText().toString();
                 String tiempoestimadodedemora=tiempodem.getText().toString();
+                String costodelyvery=costodely.getText().toString();
                 StorageReference mountainsRef = storageRef.child(razonsocialempresa+".jpg");
                 foto_gallery.setDrawingCacheEnabled(true);
                 foto_gallery.buildDrawingCache();
@@ -255,7 +256,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                                         //                      pdLoading.dismiss();
                                         Empresa pg=new Empresa(Integer.parseInt(idempresa),razonsocialempresa,direccionempresa,telefonoempresa,correoempresa
                                                 ,paginawebempresa,"habilitado",sloganempresa,nombreadministradorempresa
-                                                ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora);
+                                                ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora,costodelyvery);
                                         new Actualizarempresa().execute(pg);
 
                                     }
@@ -392,7 +393,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                                     ,json_data.getString("logotipoempresa")
                                     ,json_data.getString("idrubroempresa")
                                     ,json_data.getString("tiempodedemoraempresa")
-
+                                    ,json_data.getString("costodelivery")
                                     );
                     todaslasempresas.add(pedidofirebase);
 
@@ -407,6 +408,9 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                     montomine.setText(json_data.getString("montominimodeventa"));
                     tiempoe.setText(json_data.getString("tiempodedemoraempresa"));
                     String nombrerubro=prefs.getString("nombrerubro","");
+                    costodely.setText(json_data.getString("costodelivery"));
+
+
 
                     rubrotraido.setText(nombrerubro);
 
@@ -645,7 +649,10 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                         .appendQueryParameter("logotipoempresa", String.valueOf(ped.getLogotipoempresa()))
                         .appendQueryParameter("idrubroempresa", String.valueOf(ped.getIdrubroempresa()))
                         .appendQueryParameter("montominimodeventa", String.valueOf(ped.getMontominimodeventa()))
-                        .appendQueryParameter("tiempodedemoraempresa", String.valueOf(ped.getTiempodedemoraempresa()));
+                        .appendQueryParameter("tiempodedemoraempresa", String.valueOf(ped.getTiempodedemoraempresa()))
+                        .appendQueryParameter("costodelivery", String.valueOf(ped.getCostodelivery()))
+                        ;
+
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data

@@ -340,7 +340,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/mo_re"
-                    android:text="Cremas"
+                    android:text="Acompañantes"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -381,7 +381,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/mo_re"
-                    android:text="Reportes"
+                    android:text="Descuentos"
                     android:textColor="@color/textcardColor"
                     android:textSize="14sp"
                     android:textStyle="bold" />

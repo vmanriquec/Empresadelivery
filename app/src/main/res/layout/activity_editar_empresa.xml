@@ -161,12 +161,12 @@
                 android:hint="tiempo promedio que se demora el delivery"
                 android:inputType="number|textPersonName" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/costodeliveryempresa2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            </LinearLayout>
+                android:hint="Costo de tu delivery(Obligatorio)"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/guardarproducto2e"
