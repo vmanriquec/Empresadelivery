@@ -25,7 +25,7 @@
                 android:layout_height="37dp"
                 android:background="@drawable/fondotarjeta"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="Administracion de Acompañantes"
+                android:text="Administracion de Descuentos"
                 android:textColor="@color/colortres"
                 android:textSize="18sp" />
 
@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Nombre de Descuento"
+                        android:hint="Precio Descuento"
                         android:inputType="textPersonName" />
                 </LinearLayout>
 

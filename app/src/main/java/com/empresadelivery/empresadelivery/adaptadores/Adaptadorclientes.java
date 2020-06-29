@@ -140,7 +140,9 @@ viewHolder.mapau.setOnClickListener(new View.OnClickListener() {
 
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+viewHolder.telefonou.getText().toString()+"&text="+"Hola..."));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mainContext.getApplicationContext().startActivity(intent);
+                    //mainContext.startActivity(intent);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -180,8 +182,9 @@ String idfirebase=firebase.getText().toString();
                         String mesi = mesei.substring(0,2);
 
                         String  iddescuento=mesi.trim();
+                        String idempresa = prefs.getString("idempresa", "");
 
-                        new actualizardescuento().execute(idfirebase,iddescuento);
+                        new actualizardescuento().execute(idfirebase,iddescuento,idempresa);
                         dialog.dismiss();
 
                     }
@@ -254,7 +257,9 @@ viewHolder.eliminar.setOnClickListener(new View.OnClickListener() {
                 // Append parameters to URL
                 Uri.Builder builder = new Uri.Builder()
                         .appendQueryParameter("idfirebase", params[0])
-                        .appendQueryParameter("idvaledescuento", params[1]);
+                        .appendQueryParameter("idvaledescuento", params[1])
+                        .appendQueryParameter("idempresa", params[2]);
+
                 String query = builder.build().getEncodedQuery();
 
                 // Open connection for sending data

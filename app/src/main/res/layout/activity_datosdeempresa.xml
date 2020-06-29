@@ -154,7 +154,7 @@
                 android:layout_height="42dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_weight="1"
-                android:background="@drawable/btn_orange_2"
+                android:background="@drawable/fondotarjeta"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="Guardar"
                 android:textColor="@color/colortres"

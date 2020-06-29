@@ -21,7 +21,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bordecuadradosuave"
             android:orientation="horizontal">
 
             <TextView
@@ -61,7 +60,7 @@
 
             <Button
                 android:id="@+id/eliminardescuentoempresa"
-                android:layout_width="35dp"
+                android:layout_width="21dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"

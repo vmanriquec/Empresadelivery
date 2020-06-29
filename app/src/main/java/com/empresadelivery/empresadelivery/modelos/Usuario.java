@@ -147,7 +147,10 @@ public class Usuario {
         this.referencia = referencia;
     }
 
-    public Usuario(int idusuario, String nombreusuario, String claveusuario, String estadousuario, int idalmacen, String idfacebook, String nombrefacebook, String imagen, String apellidos, String idfirebase, String telefono, String contrasena, String correo, String direccion, String longitud, String latitud, String referencia) {
+    public Usuario(int idusuario, String nombreusuario, String claveusuario, String estadousuario,
+                   int idalmacen, String idfacebook, String nombrefacebook, String imagen, String apellidos,
+                   String idfirebase, String telefono, String contrasena, String correo, String direccion,
+                   String longitud, String latitud, String referencia) {
         this.idusuario = idusuario;
         this.nombreusuario = nombreusuario;
         this.claveusuario = claveusuario;

@@ -135,7 +135,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
                 .title(nombreiso)
                 .snippet(refe)
 
-                .icon(bitmapDescriptorFromVector(this, R.drawable.ic_success))
+                .icon(bitmapDescriptorFromVector(this, R.drawable.gpsc))
                 .anchor(0.5f, 0.5f)
         );
 

@@ -52,16 +52,16 @@
                         android:id="@+id/ppc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+
                         android:text="Nombre" />
 
                     <EditText
                         android:id="@+id/nombrecremaempresal"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Nombre de Crema"
+                        android:hint="Nombre de Acompañante de tu producto"
                         android:inputType="textPersonName" />
                 </LinearLayout>
 

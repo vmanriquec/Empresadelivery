@@ -1,5 +1,6 @@
 package com.empresadelivery.empresadelivery;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -165,6 +166,7 @@ listo.setOnClickListener(new View.OnClickListener() {
             }
         }
 
+        @SuppressLint("ResourceAsColor")
         @Override
         protected void onPostExecute(String result) {
             Log.d("paso",result.toString());
@@ -196,13 +198,13 @@ listo.setOnClickListener(new View.OnClickListener() {
 
                     TextView texto = new TextView(getApplication());
                     texto.setText("        AGREGA ALGUN ADICIONAL        ");
-                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.blue_leftcorner_bkg));
+                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.fondotarjeta));
                     texto.setGravity(Gravity.CENTER);
 
                     //  texto.setLayoutParams(param);
-                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-                    texto.setTypeface(null, Typeface.BOLD);
-                    texto.setShadowLayer(2, 1, 1, R.color.accent);
+                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+                    texto.setTypeface(null, Typeface.NORMAL);
+                    texto.setShadowLayer(2, 1, 1, R.color.colortres);
                     texto.setTextColor(getApplication().getResources().getColor(R.color.colortres));
 
                     TableRow.LayoutParams textoenlayout = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
@@ -210,6 +212,7 @@ listo.setOnClickListener(new View.OnClickListener() {
                     for( numerodeadiciones= 0; numerodeadiciones < peopleadicional.size(); numerodeadiciones++) {
                         CheckBox cb = new CheckBox(getApplication());
                         cb.setText("   "+peopleadicional.get(numerodeadiciones).getNombreadicional()+ "               S/. "+String.valueOf(peopleadicional.get(numerodeadiciones).getPrecioadicional()));
+                        cb.setTextColor(getApplication().getResources().getColor(R.color.colorPrimary));
                         Double ffff=peopleadicional.get(numerodeadiciones).getPrecioadicional();
                         String q=peopleadicional.get(numerodeadiciones).getNombreadicional();
                         Double l=peopleadicional.get(numerodeadiciones).getPrecioadicional();
@@ -228,7 +231,7 @@ listo.setOnClickListener(new View.OnClickListener() {
                                 int ou=Integer.parseInt(idproductom);
 
 
-Switch lo=(Switch)findViewById(R.id.estadocrema);
+
 
 
 
@@ -242,17 +245,6 @@ Switch lo=(Switch)findViewById(R.id.estadocrema);
 Productoadicional yu=new Productoadicional(1,ou,ida,crem);
                                     new grabaradicional().execute(yu);
                                 } else {
-                                    lo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                            if (isChecked) {
-                                                // The toggle is enabled
-                                                crem="1";
-                                            } else {
-                                                // The toggle is disabled
-                                                crem="0";
-                                            }
-                                        }
-                                    });
 
                                     Productoadicional yu=new Productoadicional(1,ou,ida,crem);
                                     new eliminaradicional().execute(yu);
@@ -591,10 +583,10 @@ Productoadicional yu=new Productoadicional(1,ou,ida,crem);
                     stradicional = datalistadicional.toArray(new String[datalistadicional.size()]);
                     TextView texto = new TextView(getApplication());
                     texto.setText("        Agrega algun Acompañante        ");
-                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.blue_leftcorner_bkg));
+                    texto.setBackgroundDrawable(getApplication().getResources().getDrawable(R.drawable.fondotarjeta));
                     texto.setGravity(Gravity.CENTER);
-                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-                    texto.setTypeface(null, Typeface.BOLD);
+                    texto.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+                    texto.setTypeface(null, Typeface.NORMAL);
                     texto.setShadowLayer(2, 1, 1, R.color.accent);
                     texto.setTextColor(getApplication().getResources().getColor(R.color.colortres));
                     TableRow.LayoutParams textoenlayout = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT);
@@ -604,7 +596,7 @@ Productoadicional yu=new Productoadicional(1,ou,ida,crem);
                     for( numerodeadiciones= 0; numerodeadiciones < peopleadicional.size(); numerodeadiciones++) {
                         CheckBox cb = new CheckBox(getApplication());
                         cb.setText("   "+peopleadicional.get(numerodeadiciones).getNombrecrema());
-
+                        cb.setTextColor(getApplication().getResources().getColor(R.color.colorPrimary));
 
                         final int ida=peopleadicional.get(numerodeadiciones).getIdcrema();
                         cb.setId(numerodeadiciones);

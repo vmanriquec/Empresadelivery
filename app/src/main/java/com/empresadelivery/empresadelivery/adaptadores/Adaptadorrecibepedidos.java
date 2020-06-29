@@ -26,6 +26,7 @@ import com.empresadelivery.empresadelivery.modelos.CremaRealm;
 import com.empresadelivery.empresadelivery.modelos.CremaRealmFirebase;
 import com.empresadelivery.empresadelivery.modelos.DetallepedidoRealmFirebase;
 import com.empresadelivery.empresadelivery.modelos.Detallepedidorealm;
+import com.empresadelivery.empresadelivery.modelos.PedidoRealm;
 import com.empresadelivery.empresadelivery.modelos.PedidoRealmFirebase;
 
 import java.io.BufferedReader;
@@ -62,7 +63,7 @@ public class Adaptadorrecibepedidos extends RecyclerView.Adapter<Adaptadorrecibe
         protected TextView nombre;
         protected TextView direccion,referencias,cuantopaga,vuelto,totalapagar1,idpedido,fechitapedido,estadopedido;
 
-        protected TextView telefono;
+        protected TextView telefono,txtporentregar;
         protected Button wasap,rechazarpedido,muestrapedido,mapau22,ordenentregada;
 
         public AdaptadorViewHolder(View v){
@@ -82,6 +83,7 @@ this.muestrapedido=(Button)v.findViewById(R.id.muestrapedido);
             this.mapau22=(Button)v.findViewById(R.id.mapau22);
             this.ordenentregada=(Button)v.findViewById(R.id.ordenentragadab);
             this.estadopedido=(TextView) v.findViewById(R.id.estadopeido);
+            this.txtporentregar=(TextView) v.findViewById(R.id.txtporentregar);
         }
     }
     @Override
@@ -106,6 +108,14 @@ viewHolder.nombre.setText(String.valueOf(item.getNombreusuario()));
         viewHolder.totalapagar1.setText(String.valueOf(item.getTotalpedido()));
         viewHolder.telefono.setText(String.valueOf(item.getTelefono()));
 viewHolder.fechitapedido.setText(String.valueOf(item.getFechapedido()));
+if (item.getDescripcionpedido().toString().equals("null")){
+    viewHolder.txtporentregar.setText("");
+
+}else{
+
+    viewHolder.txtporentregar.setText(String.valueOf(item.getDescripcionpedido()));
+}
+
 
         switch(item.getEstadopedido().toString()) {
             case "entregado":
@@ -170,16 +180,23 @@ viewHolder.mapau22.setOnClickListener(new View.OnClickListener() {
 viewHolder.muestrapedido.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+
         final Dialog dialog = new Dialog(mainContext);
         dialog.setTitle("Details");
+        Realm pedido = Realm.getDefaultInstance();
+
+
+
+
+
         dialog.setContentView(R.layout.dialogo);
         RecyclerView detalles=(RecyclerView) dialog.findViewById(R.id.detalle);
 
 
         String hh=viewHolder.idpedido.getText().toString();
-        Realm pedido = Realm.getDefaultInstance();
-        ArrayList<DetallepedidoRealmFirebase> todoslosdetalles = new ArrayList<>();
 
+        ArrayList<DetallepedidoRealmFirebase> todoslosdetalles = new ArrayList<>();
+todoslosdetalles.clear();
         RealmResults<Detallepedidorealm> results =
                 pedido.where(Detallepedidorealm.class)
                         .equalTo("idpedido", Integer.valueOf(hh))

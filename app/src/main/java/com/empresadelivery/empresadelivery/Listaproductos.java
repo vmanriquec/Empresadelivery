@@ -52,12 +52,17 @@ public class Listaproductos extends AppCompatActivity {
     public static final int READ_TIMEOUT = 15000;
     String FileName = "myfile";
     SharedPreferences prefs;
-Button todos,nuevo;
+Button todos,nuevo,listo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.maestraproductos);
         todos=(Button)findViewById(R.id.todos);
+        listo=(Button)findViewById(R.id.adicionales);
+
+
+
+
 nuevo=(Button)findViewById(R.id.nuevoproductito);
 Button cremas=(Button)findViewById(R.id.cremas);
         prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
@@ -96,6 +101,15 @@ Button cremas=(Button)findViewById(R.id.cremas);
                 new traerproductosporidalmacenidfamilia().execute(idempresa);
             }
         });
+
+        listo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ListSong = new Intent(getApplicationContext(), Dashboardempresa.class);
+                Listaproductos.this.startActivity(ListSong);
+            }
+        });
+
         nuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

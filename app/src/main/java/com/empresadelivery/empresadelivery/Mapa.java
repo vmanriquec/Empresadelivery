@@ -74,6 +74,9 @@ public class Mapa extends FragmentActivity
 
 
     LocationRequest mLocationRequest;
+
+
+
     private final LatLng Sopdapop = new LatLng(-11.495692495131408, -77.208248);
 
     @Override
@@ -140,7 +143,7 @@ public class Mapa extends FragmentActivity
                 .title(nombreiso)
                 .snippet(refe)
 
-                .icon(bitmapDescriptorFromVector(this, R.drawable.ic_success))
+                .icon(bitmapDescriptorFromVector(this,R.drawable.src_files_pin))
                 .anchor(0.5f, 0.5f)
         );
 

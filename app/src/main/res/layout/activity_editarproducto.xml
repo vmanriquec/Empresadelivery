@@ -4,82 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
     android:background="@color/trans">
 
-    <LinearLayout
-        android:id="@+id/bus"
+    <RelativeLayout
+        android:id="@+id/busqueda1"
         android:layout_width="match_parent"
-android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+
+
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/fondotarjeta">
 
         <MultiAutoCompleteTextView
-            android:id="@+id/multiAutoCompleteTextView"
-            android:layout_width="289dp"
+            android:id="@+id/multiAutoCompleteTextView1"
+            android:layout_width="264dp"
             android:layout_height="46dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/fondoparabuscar"
             android:gravity="center_vertical"
             android:hint="Busca un producto"
-            android:paddingLeft="10dp"
-            tools:ignore="LabelFor" />
+
+            android:paddingLeft="10dp" />
 
         <Button
-            android:id="@+id/todos"
-            android:layout_width="65dp"
+            android:id="@+id/todos1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center_horizontal|center_vertical"
             android:layout_marginLeft="2dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="2dp"
             android:layout_marginBottom="5dp"
-            android:layout_weight="1"
+            android:layout_toRightOf="@id/multiAutoCompleteTextView1"
             android:background="@color/trans"
             android:text="Todos"
-            android:textColor="@color/coloruno" />
+            android:textColor="@color/colortres" />
 
         <Button
-            android:id="@+id/nuevoproductito"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
+            android:id="@+id/nuevoproductito1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginTop="5dp"
+
+android:layout_toRightOf="@id/todos1"
+android:layout_alignParentRight="true"
             android:layout_marginBottom="5dp"
-            android:layout_weight="1"
             android:background="@drawable/nuevob" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <ScrollView
-        android:id="@+id/rec"
-android:layout_below="@+id/bus"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recymaestraproductos1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/fin"
-        android:layout_centerHorizontal="true">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recymaestraproductos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp" />
-    </ScrollView>
+        android:layout_below="@id/busqueda1"
+        android:layout_height="622dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp" />
 
     <LinearLayout
-        android:id="@+id/fin"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/botones1"
+        android:layout_below="@id/recymaestraproductos1"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/fondotarjeta"
         android:gravity="center_horizontal|left"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
-            android:id="@+id/cremas"
+            android:id="@+id/cremas1"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -94,7 +96,7 @@ android:layout_below="@+id/bus"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/adicionales"
+            android:id="@+id/adicionales1"
             android:layout_width="wrap_content"
             android:layout_height="27dp"
             android:layout_gravity="center_horizontal|center_vertical"

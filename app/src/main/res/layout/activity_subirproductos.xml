@@ -1,118 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="5dp"
-    android:layout_marginTop="5dp"
-    android:layout_marginRight="5dp"
-    android:layout_marginBottom="5dp"
+
     tools:context=".Subirproductos">
-
-    <Button
-        android:id="@+id/guardarproducto"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_weight="1"
-        android:background="@drawable/btn_orange_2"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Guardar"
-        android:textColor="@color/colortres"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:text=" Familia"
-        android:textColor="@color/accent"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86" />
 
     <Spinner
         android:id="@+id/spinnerio"
         android:layout_width="1dp"
         android:layout_height="1dp"
-        android:layout_below="@+id/materialTextField2"
-        android:layout_alignEnd="@+id/materialTextField2"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.779"
-        tools:ignore="UnknownId" />
 
-    <Spinner
-        android:id="@+id/spinnerio2"
-        android:layout_width="207dp"
-        android:layout_height="34dp"
-        android:layout_below="@+id/materialTextField2"
-        android:layout_alignEnd="@+id/materialTextField2"
-        android:layout_weight="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.897"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861"
-        tools:ignore="UnknownId" />
+         />
 
-    <ImageView
-        android:id="@+id/foto"
-        android:layout_width="400dp"
-        android:layout_height="242dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingRight="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
+    <RelativeLayout
+        android:id="@+id/fotos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:id="@+id/camara"
-        android:layout_width="67dp"
-        android:layout_height="61dp"
-        android:background="@android:drawable/ic_menu_camera"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.239" />
+        <ImageView
+            android:id="@+id/foto"
+            android:layout_width="318dp"
+            android:layout_height="245dp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="5dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp" />
+
+        <Button
+            android:id="@+id/camara"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foto"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="0dp"
+            android:layout_toRightOf="@id/foto"
+            android:background="@android:drawable/ic_menu_camera" />
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
         android:layout_width="372dp"
         android:layout_height="258dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553">
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/fotos">
 
         <LinearLayout
             android:layout_width="60dp"
@@ -135,32 +70,15 @@
                     app:srcCompat="@drawable/soda" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/semiTransparentWhite"
-                android:orientation="vertical"></LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:orientation="vertical" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@color/semiTransparentWhite"
-                android:orientation="vertical" />
 
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/white_rightcorner_bkg"
+            android:layout_height="fill_parent"
             android:orientation="vertical">
 
             <LinearLayout
@@ -177,7 +95,7 @@
                     android:hint="Nombre Producto"
                     android:paddingLeft="10dp"
                     android:textColorHint="@color/accent"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -196,7 +114,7 @@
                     android:inputType="numberDecimal"
                     android:paddingLeft="10dp"
                     android:textColorHint="@color/accent"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -230,11 +148,42 @@
                     android:hint="Ingredientes"
                     android:paddingLeft="10dp"
                     android:textColorHint="@color/accent"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_below="@id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text=" Familia"
+        android:textColor="@color/accent"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerio2"
+        android:layout_width="207dp"
+        android:layout_height="34dp"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@id/linearLayout7"
+        android:layout_toRightOf="@id/textView2"
+         />
+
+    <Button
+        android:id="@+id/guardarproducto"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/fondotarjeta"
+        android:text="Guardar"
+        android:textColor="@color/colortres"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

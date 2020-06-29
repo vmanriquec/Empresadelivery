@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/radios"
         android:layout_width="408dp"
         android:layout_height="37dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/fondoparabuscar"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:orientation="horizontal">
 
         <RadioGroup
             android:id="@+id/todoradio"
@@ -73,37 +68,28 @@
 
     <TextView
         android:id="@+id/quesemuestra"
-        android:layout_width="0dp"
+        android:layout_below="@id/radios"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_marginLeft="5dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/fondotarjeta"
-        android:gravity="center_horizontal|center_vertical"
         android:text="TextView"
         android:textColor="@color/colortres"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="0dp"
-        android:layout_height="575dp"
+        android:layout_below="@+id/quesemuestra"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        android:layout_marginBottom="5dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

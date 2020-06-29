@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -50,6 +51,19 @@ public class Subirfamilia extends AppCompatActivity {
         setContentView(R.layout.dalogocremas);
 
         prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
+        Button vadashboard=(Button) findViewById(R.id.vaadashboard);
+        vadashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Subirfamilia.this, Dashboardempresa.class);
+                startActivity(intent);
+
+
+
+
+
+            }
+        });
         String idempresa=prefs.getString("idempresa","");
 
              new Traertodaslasfamiliasendialogo().execute(idempresa);

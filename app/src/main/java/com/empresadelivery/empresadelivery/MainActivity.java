@@ -99,8 +99,16 @@ public class MainActivity extends AppCompatActivity {
                 .schemaVersion(0)
                 .build();
         Realm.setDefaultConfiguration(realmConfig);
-//        eliminartododerealm();
+//        eliminartododerealm();tr
 
+        Realm pedido = Realm.getDefaultInstance();
+        pedido.beginTransaction();
+
+        pedido.delete(AdicionalRealm.class);
+        pedido.delete(CremaRealm.class);
+        pedido.delete(Detallepedidorealm.class);
+        pedido.delete(PedidoRealm.class);
+        pedido.commitTransaction();
 
         final RecyclerView pedidos= findViewById(R.id.recycler);
 

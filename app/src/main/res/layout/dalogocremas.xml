@@ -1,70 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/imageVieww"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondotarjeta"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Registro de Familias"
+        android:textColor="@color/colortres"
+        android:textSize="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
 
-        <TextView
-            android:id="@+id/imageVieww"
-            android:layout_width="match_parent"
-            android:layout_height="34dp"
-            android:background="@drawable/fondotarjeta"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="Registro de Familias"
-            android:textColor="@color/colortres"
-            android:textSize="16dp" />
+    <ScrollView
+        android:id="@+id/dat"
+android:layout_below="@+id/imageVieww"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ingresa"
+        android:layout_centerHorizontal="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewfamilial"
             android:layout_width="match_parent"
-            android:layout_height="605dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="3dp"
             android:layout_marginRight="3dp"
             android:layout_marginBottom="3dp" />
+    </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/ingresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/vaadashboard">
+
+        <EditText
+            android:id="@+id/ingresanomberfamilia"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/ingresanomberfamilia"
-                android:layout_width="305dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nombre Familia"
-                android:inputType="textPersonName" />
-
-            <Button
-                android:id="@+id/grabarfamilia"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_weight="1"
-                android:background="@drawable/botondegradado"
-                android:text="Grabar"
-                android:textColor="@color/colortres" />
-        </LinearLayout>
+            android:ems="10"
+            android:hint="Nombre Familia"
+            android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/vaadashboard"
+            android:id="@+id/grabarfamilia"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="32dp"
+            android:layout_weight="1"
             android:background="@drawable/fondotarjeta"
-            android:text="Listo"
+            android:text="Grabar"
             android:textColor="@color/colortres" />
-
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/vaadashboard"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:background="@drawable/fondotarjeta"
+        android:text="Listo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colortres" />
+
+</RelativeLayout>

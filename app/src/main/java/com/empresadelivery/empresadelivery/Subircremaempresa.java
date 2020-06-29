@@ -100,7 +100,7 @@ public class Subircremaempresa extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pdLoading.setMessage("\tRegistrando crema..");
+            pdLoading.setMessage("\tRegistrando Acompañante..");
             pdLoading.setCancelable(false);
             pdLoading.show();
 

@@ -11,7 +11,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/button_background"
+
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +25,23 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/cantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:paddingRight="10dp"
+                android:text="TextView"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/producto"
                 android:layout_width="182dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -46,16 +57,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/cantidad"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:paddingRight="10dp"
-                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout

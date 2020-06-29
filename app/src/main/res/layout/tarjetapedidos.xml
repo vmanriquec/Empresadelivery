@@ -24,7 +24,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="40dp"
-            android:background="@drawable/bordecuadradosuave"
+
             android:orientation="vertical">
 
             <LinearLayout
@@ -45,10 +45,10 @@
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="124dp"
+                        android:layout_width="2dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fecha de Pedido" />
+                        android:text="Fecha" />
 
                     <TextView
                         android:id="@+id/fechitapedido"
@@ -70,7 +70,15 @@
                         android:text="TextView"
                         android:textColor="@color/colortres"
                         android:textSize="18sp" />
+
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtporentregar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="TextView" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -99,12 +107,10 @@
 
                     <Button
                         android:id="@+id/muestrapedido"
-                        android:layout_width="6dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/src_files_orderselect" />
+                        android:background="@drawable/src_files_basketselect" />
 
                 </LinearLayout>
 
@@ -251,51 +257,51 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="8dp"
-                android:background="@color/quantum_amber300"
-                android:orientation="horizontal">
+                android:background="@color/quantum_amber300">
 
                 <Button
                     android:id="@+id/rechazarorden"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="24dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
+                    android:layout_alignParentLeft="true"
                     android:background="@color/trans"
                     android:text="Rechazar "
-                    android:textColor="@color/coloruno" />
+                    android:textColor="@color/coloruno"
+                    android:layout_toLeftOf="@+id/ordenentragadab"/>
 
-                <Button
+                    <Button
                     android:id="@+id/ordenentragadab"
-                    android:layout_width="157dp"
-                    android:layout_height="36dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
                     android:background="@color/trans"
-                    android:text="Entregar"
-                    android:textColor="@color/coloruno" />
+                    android:text="Entregado"
+                        android:layout_toLeftOf="@+id/watsapp"
 
+                    android:textColor="@color/coloruno" />
                 <Button
                     android:id="@+id/watsapp"
-                    android:layout_width="5dp"
-                    android:layout_height="34dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_width="34dp"
+                    android:layout_height="22dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_weight="1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentRight="true"
                     android:background="@drawable/wasap"
                     android:gravity="center|center_horizontal|center_vertical" />
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
