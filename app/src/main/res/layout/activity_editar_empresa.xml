@@ -55,13 +55,22 @@
                 android:layout_height="wrap_content"
                 android:hint=" Razon soc. de tu empresa" />
 
-            <EditText
-                android:id="@+id/direccionempresale"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Direccion  de tu empresa"
-                android:inputType="textPersonName" />
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/direccionempresale"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toLeftOf="@+id/sacarubicacion"
+                    android:hint="Direccion  de tu empresa(Obligatorio) ->"
+                    android:inputType="textPersonName" />
+
+            </RelativeLayout>
 
             <EditText
                 android:id="@+id/telefonoempresale"

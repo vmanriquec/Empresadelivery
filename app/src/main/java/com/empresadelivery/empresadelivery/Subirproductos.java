@@ -192,7 +192,7 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
 
                                  String idempresa=prefs.getString("idempresa","");
                                 Productoguardar pg=new Productoguardar(0,nombreproducto.getText().toString(),"1",Double.parseDouble(precioproducto.getText().toString())
-                                        ,"no",Integer.parseInt(idfamilia),Double.parseDouble(descripcionproducto.getText().toString()),imageUrl,"no hay","sin foto","sin qr"
+                                        ,"no",Integer.parseInt(idfamilia),Double.parseDouble(descripcionproducto.getText().toString()),imageUrl,"no hay",nombre+".jpg","sin qr"
                                 ,1,ingredientes.getText().toString(),Integer.parseInt(idalmacen),Integer.parseInt(idempresa));
                                 new grabarproducto().execute(pg);
 

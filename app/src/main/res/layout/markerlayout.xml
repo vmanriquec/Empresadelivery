@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="5dp" >
 
     <ImageView
         android:id="@+id/info_window_imagen"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/usercomanda" />
+        android:src="@drawable/usercomanda"
+        tools:srcCompat="@drawable/empresadatos" />
 
     <TextView
         android:id="@+id/info_window_nombre"
@@ -18,18 +20,20 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
-        android:text="Hola" />
+        android:text="Hola"
+        android:textColor="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/info_window_placas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_below="@id/info_window_nombre"
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
-        android:text="Placas: SX5487" />
+        android:text="Placas: SX5487"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/info_window_estado"
@@ -38,6 +42,7 @@
         android:layout_below="@id/info_window_placas"
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
-        android:text="Estado: Activo" />
+        android:text="Estado: Activo"
+        android:textColor="@color/colorPrimary" />
 
 </RelativeLayout>

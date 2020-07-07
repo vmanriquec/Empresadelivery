@@ -14,11 +14,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.empresadelivery.empresadelivery.adaptadores.Adaptadordescuentos;
 import com.empresadelivery.empresadelivery.adaptadores.Adaptadorrecibepedidos;
 import com.empresadelivery.empresadelivery.modelos.AdicionalRealm;
 import com.empresadelivery.empresadelivery.modelos.CremaRealm;
@@ -30,6 +33,7 @@ import com.empresadelivery.empresadelivery.modelos.Detallepedidorealm;
 import com.empresadelivery.empresadelivery.modelos.PedidoRealm;
 import com.empresadelivery.empresadelivery.modelos.PedidoRealmFirebase;
 import com.empresadelivery.empresadelivery.modelos.Rubros;
+import com.empresadelivery.empresadelivery.modelos.Tipodepagoempresa;
 import com.empresadelivery.empresadelivery.modelos.Tiposdepago;
 import com.empresadelivery.empresadelivery.modelos.Tiposedepagorealm;
 import com.squareup.picasso.Picasso;
@@ -82,8 +86,27 @@ public class Dashboardempresa extends AppCompatActivity {
                 .build();
         Realm.setDefaultConfiguration(realmConfig);
 
+        Switch estadoabierto=(Switch)findViewById(R.id.estadoabierto);
 
-         String razonsocialempresa=prefs.getString("razonsocialempresa","");
+        estadoabierto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    new actualizarabiertocerrado().execute("abierto",idempresa);
+
+                } else {
+                    new actualizarabiertocerrado().execute("cerrado",idempresa);
+
+
+                }
+            }
+        });
+
+
+
+
+
+        String razonsocialempresa=prefs.getString("razonsocialempresa","");
         String direccionempresa=prefs.getString("direccionempresa","");
         String estadoempresa=prefs.getString("estadoempresa","");
         String sloganempresa=prefs.getString("sloganempresa","");
@@ -435,6 +458,110 @@ dire.setText(direccionempresa);
         }
     }
 
+
+
+
+
+
+    private class actualizarabiertocerrado extends AsyncTask<String, String, String> {
+        ArrayList<Tipodepagoempresa> people=new ArrayList<>();
+        private String[] strArrData = {"No Suggestions"};
+
+        HttpURLConnection conne;
+        URL url = null;
+        ArrayList<Tipodepagoempresa> listaalmaceno = new ArrayList<Tipodepagoempresa>();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                url = new URL("https://sodapop.pe/sugest/actualizarabiertocerrado.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return e.toString();
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("POST");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+
+                // Append parameters to URL
+
+
+
+                Uri.Builder builder = new Uri.Builder()
+
+                        .appendQueryParameter("idtipodeatencion", params[0])
+                        .appendQueryParameter("idempresa", params[1])
+                        ;
+
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return e1.toString();
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+
+                    }
+                    return (
+
+                            result.toString()
+
+
+                    );
+
+                } else {
+                    return("Connection error");
+                }
+            } catch (IOException e) {
+                e.printStackTrace()                ;
+
+                return e.toString();
+            } finally {
+                conne.disconnect();
+            }
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("paso",result.toString());
+
+        }
+
+    }
     }
 
 

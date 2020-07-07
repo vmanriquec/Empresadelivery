@@ -8,12 +8,19 @@ public class Productos {
 
 
     private int idproducto;
-    private String nombreproducto,estadoproducto,ingredientes,descripcion;
+    private String nombreproducto,estadoproducto,ingredientes,descripcion,foto;
     private Double precventa;
 
 
+    public String getFoto() {
+        return foto;
+    }
 
-        public Productos(int idproducto, String nombreproducto, String estadoproducto, String ingredientes, Double precventa, String descripcion )
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public Productos(int idproducto, String nombreproducto, String estadoproducto, String ingredientes, Double precventa, String descripcion , String foto)
     {
         super();
         this.idproducto=idproducto;
@@ -22,6 +29,7 @@ public class Productos {
         this.ingredientes=ingredientes;
         this.precventa=precventa;
         this.descripcion=descripcion;
+        this.foto=foto;
 
     }
        public int getIdproducto() {

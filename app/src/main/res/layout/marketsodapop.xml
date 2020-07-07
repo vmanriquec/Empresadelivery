@@ -25,6 +25,7 @@
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
         android:text="nombre de local"
+        android:textColor="@color/colorPrimary"
         android:textSize="12sp" />
 
     <TextView
@@ -36,6 +37,7 @@
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
         android:text="Placas: SX5487"
+        android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -49,6 +51,7 @@
         android:layout_toRightOf="@id/info_window_imagen"
         android:paddingLeft="5dp"
         android:text="Estado: Activo"
+        android:textColor="@color/colorPrimary"
         android:textSize="12sp" />
 
 </RelativeLayout>

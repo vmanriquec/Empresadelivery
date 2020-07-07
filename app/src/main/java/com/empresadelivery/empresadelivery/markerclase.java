@@ -23,8 +23,8 @@ public class markerclase implements GoogleMap.InfoWindowAdapter {
         String[] info = m.getTitle().split("&");
         String url = m.getSnippet();
         ((TextView)v.findViewById(R.id.info_window_nombre)).setText("Hola");
-        ((TextView)v.findViewById(R.id.info_window_placas)).setText("Enviaremos aqui");
-        ((TextView)v.findViewById(R.id.info_window_estado)).setText("Estado: Activo");
+        ((TextView)v.findViewById(R.id.info_window_placas)).setText("Esta sera tu direccion");
+        ((TextView)v.findViewById(R.id.info_window_estado)).setText("Estado: Habilitado");
         return v;
     }
 

@@ -18,6 +18,25 @@ public class Empresa {
     String logotipoempresa;
     String idrubroempresa;
     String costodelivery;
+    String latitudempresa;
+    String longitudempresa;
+
+    public String getLatitudempresa() {
+        return latitudempresa;
+    }
+
+    public void setLatitudempresa(String latitudempresa) {
+        this.latitudempresa = latitudempresa;
+    }
+
+    public String getLongitudempresa() {
+        return longitudempresa;
+    }
+
+    public void setLongitudempresa(String longitudempresa) {
+        this.longitudempresa = longitudempresa;
+    }
+
 
     public String getCostodelivery() {
         return costodelivery;
@@ -158,12 +177,14 @@ public class Empresa {
                    String telefonoempresa,  String emailempresa, String paginawebempresa,
                    String estadoempresa, String sloganempresa, String nombreadministrador,
                    String telefonoadministrador, String logotipoempresa, String idrubroempresa,
-                   String montominimodeventa, String tiempodedemoraempresa,String costodelivery) {
+                   String montominimodeventa, String tiempodedemoraempresa,String costodelivery,String latitudempresa,String longitudempresa)
+
+    {
+
         this.idempresa = idempresa;
         this.razonsocialempresa = razonsocialempresa;
         this.direccionempresa = direccionempresa;
         this.telefonoempresa = telefonoempresa;
-
         this.emailempresa = emailempresa;
         this.paginawebempresa = paginawebempresa;
         this.estadoempresa = estadoempresa;
@@ -175,6 +196,9 @@ public class Empresa {
         this.montominimodeventa = montominimodeventa;
         this.tiempodedemoraempresa = tiempodedemoraempresa;
         this.costodelivery = costodelivery;
+        this.latitudempresa = latitudempresa;
+        this.longitudempresa = longitudempresa;
+
 
     }
 

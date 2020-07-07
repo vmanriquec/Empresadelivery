@@ -16,11 +16,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.empresadelivery.empresadelivery.R;
 import com.empresadelivery.empresadelivery.modelos.Detallepedido;
 import com.empresadelivery.empresadelivery.modelos.Productos;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
@@ -35,6 +40,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicMarkableReference;
 
 import io.realm.Realm;
 import jp.wasabeef.picasso.transformations.CropSquareTransformation;
@@ -84,7 +90,7 @@ public class Adaptadormaestraproducto extends RecyclerView.Adapter<Adaptadormaes
             this.productoingredientes=(TextView) v.findViewById(R.id.ingredientesproductos);
             this.productoimagen=(ImageView) v.findViewById(R.id.imagenproductos);
 this.eliminaro=(Button)v.findViewById(R.id.eliminarproducto);
-
+this.editar=(Button)v.findViewById(R.id.editarproducfindto);
 
         }
     }
@@ -153,6 +159,7 @@ this.eliminaro=(Button)v.findViewById(R.id.eliminarproducto);
             @Override
             public void onClick(View v) {
             String oo=String.valueOf(item.getIdproducto());
+           eliminarimagendestorage(item.getFoto());
             new eliminarproducto().execute(oo);
                 items.remove(position);
                 notifyItemRemoved(position);
@@ -162,12 +169,48 @@ this.eliminaro=(Button)v.findViewById(R.id.eliminarproducto);
             }
             });
 
+viewHolder.editar.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+
 
     }
+});
+    }
+
+    private void eliminarimagendestorage(String ima) {
+        // Create a storage reference from our app
+        final FirebaseStorage storage= FirebaseStorage.getInstance();
+
+        StorageReference storageRef = storage.getReference();
+
+// Cr
+// Create a reference to the file to delete
+        StorageReference desertRef = storageRef.child("images/"+ima);
+
+// Delete the file
+        desertRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                // File deleted successfully
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Uh-oh, an error occurred!
+            }
+        });
+    }
+
     @Override
     public int getItemCount() {
         return items.size();
     }
+
+
+
+
     private class eliminarproducto extends AsyncTask<String, String, String> {
         ArrayList<Productos> people=new ArrayList<>();
         private String[] strArrData = {"No Suggestions"};
@@ -266,6 +309,8 @@ this.eliminaro=(Button)v.findViewById(R.id.eliminarproducto);
         }
 
         }
+
+
 
     }
 

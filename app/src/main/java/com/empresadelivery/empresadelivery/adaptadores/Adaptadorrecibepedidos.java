@@ -119,7 +119,7 @@ if (item.getDescripcionpedido().toString().equals("null")){
 
         switch(item.getEstadopedido().toString()) {
             case "entregado":
-               viewHolder.estadopedido.setBackgroundColor(R.color.purple);
+               viewHolder.estadopedido.setBackgroundColor(R.color.coloruno);
                 viewHolder.estadopedido.setText("Entregado");
                 //playButton.setVisibility(View.GONE);
                 //stopButton.setVisibility(View.VISIBLE);
@@ -130,7 +130,7 @@ if (item.getDescripcionpedido().toString().equals("null")){
                 break;
             case "rechazado":
 
-                viewHolder.estadopedido.setBackgroundColor(R.color.primary);
+                viewHolder.estadopedido.setBackgroundColor(R.color.colorPrimary);
                 viewHolder.estadopedido.setText("Rechazado");
                 viewHolder.ordenentregada.setVisibility(View.GONE);
                 viewHolder.rechazarpedido.setVisibility(View.GONE);

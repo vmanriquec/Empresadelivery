@@ -16,13 +16,24 @@
 
     <ImageView
         android:id="@+id/logoempresa"
-        android:layout_width="116dp"
+        android:layout_width="206dp"
         android:layout_height="89dp"
 
         android:layout_marginTop="24dp"
 
 
         app:srcCompat="@drawable/chef" />
+
+    <Switch
+        android:id="@+id/estadoabierto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+        android:layout_marginTop="44dp"
+        android:layout_marginRight="15dp"
+android:textColor="@color/colortres"
+        android:textSize="18dp"
+        android:text="Abierto" />
 
     <TextView
         android:id="@+id/razonsocialdashboard"

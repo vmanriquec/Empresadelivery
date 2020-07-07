@@ -97,17 +97,58 @@ Button guardarempresa;
         Button eleccion = (Button) findViewById(R.id.camara1);
 
         new cargarrubro().execute();
+Button sacarubicacion=(Button)findViewById(R.id.sacarubicacion);
+sacarubicacion.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent ino= new Intent(Datosdeempresa.this,Mapacitonulo.class);
+        startActivity(ino);
 
+
+    }
+});
 
         SharedPreferences prefs;
         String FileName = "myfile";
         prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
 guardarempresa=(Button) findViewById(R.id.guardarproducto2);
+        TextView dire=(TextView)findViewById(R.id.direccionempresal);
+
+        String direccionempresar=prefs.getString("direccionempresa", "");
+        String referenciaempresa = prefs.getString("referenciaempresa", "");
+        String latitudempresa = prefs.getString("latitudempresa", "");
+        String longitudempresa=prefs.getString("longitudempresa", "");
+        dire.setText(direccionempresar);
+
+
+
+
+
 
 
         guardarempresa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(dire.getText().toString().equals("")){
+
+                    BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("test", "debes agregar un nombre");
+                    bundle.putString("nombreusuario", "");
+                    bundle.putString("imagen", getResources().getString(R.string.gifadmiracion));
+
+
+                    bottomSheetDialog.setArguments(bundle);
+                    bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+
+
+
+
+                }
+
+
+                else{
 
                 BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
@@ -124,7 +165,7 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
 
                 StorageReference storageRef = storage.getReference();
                 TextView razon=(TextView)findViewById(R.id.razonsociall);
-                TextView dire=(TextView)findViewById(R.id.direccionempresal);
+
                 TextView telefemp=(TextView)findViewById(R.id.telefonoempresal);
                 TextView corre=(TextView)findViewById(R.id.emailempresal);
                 TextView pagin=(TextView)findViewById(R.id.paginawebempresl);
@@ -205,7 +246,7 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
                                             //                      pdLoading.dismiss();
                                             Empresa pg=new Empresa(0,razonsocialempresa,direccionempresa,telefonoempresa,correoempresa
                                                     ,paginawebempresa,"habilitado",sloganempresa,nombreadministradorempresa
-                                                    ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora,costodelivery);
+                                                    ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora,costodelivery,latitudempresa,longitudempresa);
                                             new grabarempresa().execute(pg);
 
 
@@ -224,15 +265,7 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
                 });
 
 
-
-
-
-
-
-
-
-
-
+            }
 
             }
         });
@@ -528,7 +561,11 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
                         .appendQueryParameter("idrubroempresa", String.valueOf(ped.getIdrubroempresa()))
                         .appendQueryParameter("montominimodeventa", String.valueOf(ped.getMontominimodeventa()))
                         .appendQueryParameter("tiempodedemoraempresa", String.valueOf(ped.getTiempodedemoraempresa()))
-                        .appendQueryParameter("costodelivery", String.valueOf(ped.getCostodelivery()));
+                        .appendQueryParameter("costodelivery", String.valueOf(ped.getCostodelivery()))
+                        .appendQueryParameter("latitudempresa", String.valueOf(ped.getLatitudempresa()))
+                        .appendQueryParameter("longitudempresa", String.valueOf(ped.getLongitudempresa()))
+
+                        ;
 
                 String query = builder.build().getEncodedQuery();
 

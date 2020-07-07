@@ -129,6 +129,14 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+                <Button
+                    android:layout_width="65dp"
+                    android:layout_height="45dp"
+                    android:id="@+id/editarproducfindto"
+                    android:background="@drawable/editarb"
+
+
+                    />
 
             </LinearLayout>
 

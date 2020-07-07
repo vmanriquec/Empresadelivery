@@ -1,9 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mapacitonulo" />
+    >
+
+    <LinearLayout
+        android:id="@+id/mapayreferencia1"
+        android:layout_width="match_parent"
+        android:layout_height="403dp"
+        android:layout_above="@+id/datosallenar1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/mapa1"
+            class="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            >
+
+        </androidx.fragment.app.FragmentContainerView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/datosallenar1"
+        android:layout_width="407dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/aregistro1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="3dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/direc1"
+                android:layout_width="match_parent"
+                android:layout_height="34dp"
+                android:layout_marginTop="5dp"
+
+                android:layout_marginBottom="5dp"
+
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="Direccion Seleccionada  -->"
+                android:textColor="@color/accent"
+                android:textColorHint="@color/accent"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/referencia1"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginStart="0dp"
+
+
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="2dp"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal|center_vertical"
+                android:hint="Escribe una referencia precisa para una mejor experiencia"
+                android:textColor="@color/accent"
+                android:textColorHint="@color/accent"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ubicar1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/listo1"
+                android:layout_width="49dp"
+                android:layout_height="45dp"
+
+                android:layout_gravity="center"
+                android:background="@drawable/gps"
+                android:gravity="center_horizontal"
+                android:textColor="@color/accent" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tu Ubicacion"
+                android:textColor="@color/accent"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/aregistro1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+
+
+        android:background="@color/accent"
+        android:text="Confirmar esta ubicacion"
+        android:textColor="@color/colortres" />
+
+
+
+</RelativeLayout>

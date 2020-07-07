@@ -29,6 +29,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Editarproducto"></activity>
+        <activity android:name=".Mapacitonulo"></activity>
         <activity android:name=".Subirnombresdedescuentos" />
         <activity android:name=".Subirfamilia" />
         <activity android:name=".Subircremaempresa" />

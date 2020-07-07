@@ -95,6 +95,8 @@ TextView razonsociale,direccione,telefonoe,
         setContentView(R.layout.activity_editar_empresa);
         prefs = this.getSharedPreferences(FileName, Context.MODE_PRIVATE);
         String idempresa=prefs.getString("idempresa","");
+        String latitudempresa = prefs.getString("latitudempresa", "");
+        String longitudempresa=prefs.getString("longitudempresa", "");
 
         new traerempresa().execute(idempresa);
         new cargarrubro().execute();
@@ -184,7 +186,10 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
 
                 StorageReference storageRef = storage.getReference();
                 TextView razon=(TextView)findViewById(R.id.razonsocialle);
+
+                String direccionempresar=prefs.getString("direccionempresa", "");
                 TextView dire=(TextView)findViewById(R.id.direccionempresale);
+                dire.setText(direccionempresar);
                 TextView telefemp=(TextView)findViewById(R.id.telefonoempresale);
                 TextView corre=(TextView)findViewById(R.id.emailempresale);
                 TextView pagin=(TextView)findViewById(R.id.paginawebempresle);
@@ -256,7 +261,10 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                                         //                      pdLoading.dismiss();
                                         Empresa pg=new Empresa(Integer.parseInt(idempresa),razonsocialempresa,direccionempresa,telefonoempresa,correoempresa
                                                 ,paginawebempresa,"habilitado",sloganempresa,nombreadministradorempresa
-                                                ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora,costodelyvery);
+                                                ,telefonoadministradorempresa,imageUrl,idrubro,montominimodeliveryempresa,tiempoestimadodedemora,costodelyvery,
+                                                latitudempresa,longitudempresa
+
+                                                );
                                         new Actualizarempresa().execute(pg);
 
                                     }
@@ -394,6 +402,9 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                                     ,json_data.getString("idrubroempresa")
                                     ,json_data.getString("tiempodedemoraempresa")
                                     ,json_data.getString("costodelivery")
+
+                                    ,json_data.getString("latitudempresa")
+                                    ,json_data.getString("longitudempresa")
                                     );
                     todaslasempresas.add(pedidofirebase);
 
@@ -407,6 +418,7 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                     teladministradore.setText(json_data.getString("telefonoadministrador"));
                     montomine.setText(json_data.getString("montominimodeventa"));
                     tiempoe.setText(json_data.getString("tiempodedemoraempresa"));
+
                     String nombrerubro=prefs.getString("nombrerubro","");
                     costodely.setText(json_data.getString("costodelivery"));
 
@@ -651,6 +663,11 @@ razonsociale=(TextView)findViewById(R.id.razonsocialle);
                         .appendQueryParameter("montominimodeventa", String.valueOf(ped.getMontominimodeventa()))
                         .appendQueryParameter("tiempodedemoraempresa", String.valueOf(ped.getTiempodedemoraempresa()))
                         .appendQueryParameter("costodelivery", String.valueOf(ped.getCostodelivery()))
+
+
+                        .appendQueryParameter("latitudempresa", String.valueOf(ped.getLatitudempresa()))
+                        .appendQueryParameter("longitudempresa", String.valueOf(ped.getLongitudempresa()))
+
                         ;
 
                 String query = builder.build().getEncodedQuery();

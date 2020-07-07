@@ -22,7 +22,7 @@ public View getInfoContents(final Marker m) {
         String url = m.getSnippet();
         ((TextView)v.findViewById(R.id.nombrelocal)).setText("SodaPop");
         ((TextView)v.findViewById(R.id.sloganlocal)).setText("Frescas Buenisimas y SEGURAS");
-        ((TextView)v.findViewById(R.id.direccionlocal)).setText("Av. solar 214 Huaral");
+        ((TextView)v.findViewById(R.id.direccionlocal)).setText("Galeria del Solar");
         return v;
         }
 
