@@ -605,6 +605,9 @@ json_data.getInt("idempresa"),
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
+
+
+
     public class grabarproducto extends AsyncTask<Productoguardar, Void, String> {
         String resultado;
         HttpURLConnection conne;

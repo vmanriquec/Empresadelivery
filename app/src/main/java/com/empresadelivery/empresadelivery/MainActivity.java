@@ -722,6 +722,18 @@ new traertodoslospedidos().execute(idempresaw);
         protected void onPreExecute() {
             super.onPreExecute();
 
+            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+
+            // String nombre = prefs.getString("nombreusuariof", "");
+
+            Bundle bundle = new Bundle();
+            bundle.putString("test", "Espera un momento por favor cargando tus pedidos por entregar");
+            bundle.putString("nombreusuario", "");
+            bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
+
+
+            bottomSheetDialog.setArguments(bundle);
+            bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
         }
 
@@ -880,6 +892,18 @@ for(int a=0;a<ere;a++){
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+
+            // String nombre = prefs.getString("nombreusuariof", "");
+
+            Bundle bundle = new Bundle();
+            bundle.putString("test", "Espera un momento por favor cargando todos tus pedidos");
+            bundle.putString("nombreusuario", "");
+            bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
+
+
+            bottomSheetDialog.setArguments(bundle);
+            bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
 
         }
@@ -1277,6 +1301,18 @@ for(int a=0;a<ere;a++){
         protected void onPreExecute() {
             super.onPreExecute();
 
+            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+
+            // String nombre = prefs.getString("nombreusuariof", "");
+
+            Bundle bundle = new Bundle();
+            bundle.putString("test", "Espera un momento por favor cargando tus pedidos Rechazados");
+            bundle.putString("nombreusuario", "");
+            bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
+
+
+            bottomSheetDialog.setArguments(bundle);
+            bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
         }
 
@@ -1433,6 +1469,18 @@ for(int a=0;a<ere;a++){
         protected void onPreExecute() {
             super.onPreExecute();
 
+            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+
+            // String nombre = prefs.getString("nombreusuariof", "");
+
+            Bundle bundle = new Bundle();
+            bundle.putString("test", "Espera un momento por favor cargando tus pedidos ya entregados");
+            bundle.putString("nombreusuario", "");
+            bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
+
+
+            bottomSheetDialog.setArguments(bundle);
+            bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
         }
 

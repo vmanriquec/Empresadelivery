@@ -311,7 +311,7 @@ viewHolder.rechazarpedido.setOnClickListener(new View.OnClickListener() {
 
                 try {
                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                  intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+viewHolder.telefono.getText().toString()+"&text="+"Hola, puedes comunicarte con migo por este medio"));
+                  intent.setData(Uri.parse("http://api.whatsapp.com/send?phone="+viewHolder.telefono.getText().toString()+"&text="+"Hola, acabamos de reibir tu pedido en breve podras recibirlo, Gracias por tu preferencia :)"));
                  mainContext.startActivity(intent);
                 }catch (Exception e){
                   e.printStackTrace();

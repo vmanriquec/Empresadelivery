@@ -1,7 +1,7 @@
 <resources>
 
 
-    <string name="app_name">Deliveryempresa</string>
+    <string name="app_name">Administracion</string>
     <string name="title_activity_mapizo">Mapizo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
