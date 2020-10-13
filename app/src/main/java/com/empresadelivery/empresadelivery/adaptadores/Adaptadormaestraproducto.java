@@ -1,6 +1,7 @@
 package com.empresadelivery.empresadelivery.adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.empresadelivery.empresadelivery.Editarproducto;
 import com.empresadelivery.empresadelivery.R;
 import com.empresadelivery.empresadelivery.modelos.Detallepedido;
 import com.empresadelivery.empresadelivery.modelos.Productos;
@@ -50,7 +52,7 @@ public class Adaptadormaestraproducto extends RecyclerView.Adapter<Adaptadormaes
     public Context mainContext;
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
-
+    Intent pi;
     String foto;
     SharedPreferences prefs;
     String FileName ="myfile";
@@ -173,6 +175,17 @@ viewHolder.editar.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 
+
+        Intent i = new Intent().setClass(mainContext, Editarproducto.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        int idp=item.getIdproducto();
+
+        i.putExtra("idproducto",String.valueOf(idp));
+
+
+
+// Launch the new activity and add the additional flags to the intent
+        mainContext.startActivity(i);
 
 
     }

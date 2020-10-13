@@ -502,7 +502,13 @@ cremas.setOnClickListener(new View.OnClickListener() {
                     for (int i = 0; i < jArray.length(); i++) {
                         JSONObject json_data = jArray.optJSONObject(i);
 
-                        meso = new Productos(json_data.getInt("idproducto"), json_data.getString("nombreproducto"), json_data.getString("estadoproducto"), json_data.getString("ingredientes"),json_data.getDouble(("precventa")),json_data.getString("descripcion"),json_data.getString("foto"));
+                        meso = new Productos(json_data.getInt("idproducto"),
+                                json_data.getString("nombreproducto"),
+                                json_data.getString("estadoproducto"),
+                                json_data.getString("ingredientes"),
+                                json_data.getDouble(("precventa")),
+                                json_data.getString("descripcion"),
+                                json_data.getString("foto"));
                         people.add(meso);
 
                     }
