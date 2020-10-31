@@ -8,7 +8,7 @@
     tools:context=".Mapa">
 
     <TextView
-        android:id="@+id/directotito"
+        android:id="@+id/directotitou"
         android:layout_width="match_parent"
         android:layout_height="37dp"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/directotito"
+        android:layout_below="@+id/directotitou"
         android:layout_above="@+id/atras"/>
 
     <Button

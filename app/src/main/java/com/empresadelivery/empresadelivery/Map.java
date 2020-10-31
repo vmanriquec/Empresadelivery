@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.DrawableRes;
@@ -68,7 +69,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
     private GoogleMap mMap,mMap1;
     private int markerCount;
     String lat,lon;
-//TextView directionational=(TextView) findViewById(R.id.directotito);
+//TextView directionational=(TextView) findViewById(R.id.directotitou);
     private String session,imgUrl,nombreususrio;
 
     @Override
@@ -77,7 +78,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
         setContentView(R.layout.activity_map);
         session = "10205968625733202";
         String dire = getIntent().getStringExtra("direccion");
-        //directionational.setText(dire);
+  //      directionational.setText(dire);
        // atras = (Button) findViewById(R.id.atras);
         //String refe = getIntent().getStringExtra("referencia");
         //atras.setText(refe);
@@ -104,9 +105,8 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
         String longitudiso = getIntent().getStringExtra("longitud");
         String latitudiso = getIntent().getStringExtra("latitud");
         String nombreiso = getIntent().getStringExtra("nombre");
-        String refe = getIntent().getStringExtra("referencia");
-        String dire = getIntent().getStringExtra("direccion");
-
+       // String refe = getIntent().getStringExtra("referencia");
+        String refe = getIntent().getStringExtra("direccion");
 
         float la = Float.parseFloat(latitudiso);
         float lon = Float.parseFloat(longitudiso);
@@ -120,27 +120,40 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
                 (this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
 
         //Uncomment To Show Google Location Blue Pointer
         // mMap.setMyLocationEnabled(true);
-        Marker marker = mMap.addMarker(new MarkerOptions()
-                .position(cliente)
-                .title(nombreiso)
-                .snippet(refe)
+        LatLng latlong = new LatLng(la, lon);
+        Marker mko = null;
 
-                .icon(bitmapDescriptorFromVector(this, R.drawable.gpsc))
-                .anchor(0.5f, 0.5f)
+        mko= mMap.addMarker(new MarkerOptions().position(new LatLng(la, lon))
+                        //.icon(BitmapDescriptorFactory.fromResource(R.drawable.pin3))
+                        //.icon(BitmapDescriptorFactory.fromBitmap((smallMarker)))//este es el valor original
+//                    .icon(bitmapDescriptorFromVector(this,R.drawable.ic_moto))
+
+                    .title("cliente-> "+nombreiso)
+                  .snippet(refe)
+
+
         );
+        PicassoMarker markero = new PicassoMarker(mko);
+
+        Picasso.get().load(R.drawable.empresadatos).transform(new CropCircleTransformation()).resize(100, 100).into(markero);
+
+        //Marker marker = mMap.addMarker(new MarkerOptions()
+        mko.setTitle(nombreiso);
+        mko.setSnippet(refe);
+          //      .position(cliente)
+            //    .title("cliente-> "+nombreiso)
+              //  .snippet(refe)
+
+                //.anchor(0.5f, 0.5f)
+        //);
 
         // mapa.setInfoWindowAdapter(new Marketclaselocal(LayoutInflater.from(getApplicationContext())));
-        marker.showInfoWindow();
+        mko.showInfoWindow();
 
     }
 
@@ -168,11 +181,13 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
             mk= mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lon))
                     //.icon(BitmapDescriptorFactory.fromResource(R.drawable.pin3))
                      //.icon(BitmapDescriptorFactory.fromBitmap((smallMarker)))//este es el valor original
-                    .title(face)
+//                    .icon(bitmapDescriptorFromVector(this,R.drawable.ic_moto))
+
+                    .title("Driver")
             );
             PicassoMarker marker = new PicassoMarker(mk);
             String imgUrl = "https://graph.facebook.com/"+face+"/picture?type=small";
-            Picasso.get().load(imgUrl).transform(new CropCircleTransformation()).resize(50, 50).into(marker);
+            Picasso.get().load(R.drawable.ic_moto).transform(new CropCircleTransformation()).resize(100, 100).into(marker);
                       mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlong, 16)
 
             );
@@ -290,7 +305,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
                 double latitude = mLastLocation.getLatitude();
                 double longitude = mLastLocation.getLongitude();
                 String loc = "" + latitude + " ," + longitude + " ";
-                Toast.makeText(this,loc, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this,loc, Toast.LENGTH_SHORT).show();
 
                 Log.d("ioo",session);
                 //Add pointer to the map at location
@@ -313,7 +328,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
             }
             else {
 
-                Toast.makeText(this, "Couldn't get the location. Make sure location is enabled on the device",
+                Toast.makeText(this, "WOW, activa tu GPS por favor",
                         Toast.LENGTH_SHORT).show();
             }
 
@@ -393,7 +408,7 @@ public class Map extends FragmentActivity implements OnMapReadyCallback,
         // Assign the new location
         mLastLocation = location;
 
-        Toast.makeText(getApplicationContext(), "Location changed!",
+        Toast.makeText(getApplicationContext(), "Actualizando ubicacion!",
                 Toast.LENGTH_SHORT).show();
 
         // Displaying the new location on UI
@@ -493,7 +508,7 @@ public class AddMarker extends AsyncTask<String, Integer, BitmapDescriptor> {
     *
     * */
     private BitmapDescriptor bitmapDescriptorFromVector(Context context, @DrawableRes int vectorDrawableResourceId) {
-        Drawable background = ContextCompat.getDrawable(context, R.drawable.gpsc);
+        Drawable background = ContextCompat.getDrawable(context,vectorDrawableResourceId );
         background.setBounds(0, 0, background.getIntrinsicWidth(), background.getIntrinsicHeight());
         Drawable vectorDrawable = ContextCompat.getDrawable(context, vectorDrawableResourceId);
         vectorDrawable.setBounds(40, 20, vectorDrawable.getIntrinsicWidth() + 40,

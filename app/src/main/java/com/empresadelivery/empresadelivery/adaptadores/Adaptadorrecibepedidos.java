@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,7 +63,7 @@ public class Adaptadorrecibepedidos extends RecyclerView.Adapter<Adaptadorrecibe
     static class AdaptadorViewHolder extends RecyclerView.ViewHolder{
         protected TextView nombre;
         protected TextView direccion,referencias,cuantopaga,vuelto,totalapagar1,idpedido,fechitapedido,estadopedido;
-
+protected ToggleButton togle;
         protected TextView telefono,txtporentregar;
         protected Button wasap,rechazarpedido,muestrapedido,mapau22,ordenentregada;
 
@@ -84,6 +85,7 @@ this.muestrapedido=(Button)v.findViewById(R.id.muestrapedido);
             this.ordenentregada=(Button)v.findViewById(R.id.ordenentragadab);
             this.estadopedido=(TextView) v.findViewById(R.id.estadopeido);
             this.txtporentregar=(TextView) v.findViewById(R.id.txtporentregar);
+            this.togle = (ToggleButton)v.findViewById(R.id.toggleButton2);
         }
     }
     @Override
@@ -108,6 +110,22 @@ viewHolder.nombre.setText(String.valueOf(item.getNombreusuario()));
         viewHolder.totalapagar1.setText(String.valueOf(item.getTotalpedido()));
         viewHolder.telefono.setText(String.valueOf(item.getTelefono()));
 viewHolder.fechitapedido.setText(String.valueOf(item.getFechapedido()));
+
+
+
+viewHolder.togle.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        if(viewHolder.togle.isChecked())
+        {
+
+
+        }else{
+
+
+        }
+    }
+});
 if (item.getDescripcionpedido().toString().equals("null")){
     viewHolder.txtporentregar.setText("");
 
