@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -51,6 +52,13 @@ public class Adaptadorrecibepedidos extends RecyclerView.Adapter<Adaptadorrecibe
     String foto;
     SharedPreferences prefs;
     String FileName ="myfile";
+
+
+    private static final String FPEDIDOS = "PEDIDOS";
+    private static final String FDETALLEPEDIDO = "FDETALLEPEDIDO";
+    private static final String FCREMAS = "FCREMAS";
+    private static final String FADICIONAL = "FADICIONAL";
+
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
     private List<PedidoRealmFirebase> items;
@@ -118,10 +126,12 @@ viewHolder.togle.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
         if(viewHolder.togle.isChecked())
         {
-
+            Toast.makeText(mainContext.getApplication(),"Pedido al driver",Toast.LENGTH_LONG).show();
+            new vadriver().execute(String.valueOf(item.getIdpedido()),item.getIdempresa());
 
         }else{
-
+            Toast.makeText(mainContext.getApplication(),"Movilidad local",Toast.LENGTH_LONG).show();
+            new nodriver().execute(String.valueOf(item.getIdpedido()),item.getIdempresa());
 
         }
     }
@@ -523,6 +533,180 @@ viewHolder.rechazarpedido.setOnClickListener(new View.OnClickListener() {
     }
 
 
+
+    private class vadriver extends AsyncTask<String, String, String> {
+        HttpURLConnection conne;
+        //        ProgressDialog pdLoading = new ProgressDialog(mainContext.this);
+        URL url = null;
+          @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            //          pdLoading.setMessage("\tCargando Adicionales");
+            //        pdLoading.setCancelable(false);
+            //      pdLoading.show();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                url = new URL("https://sodapop.pe/sugest/driverhabilitapedido.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return e.toString();
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("POST");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("idpedido", params[0])
+                        .appendQueryParameter("idempresa", params[1])
+                        ;
+                String query = builder.build().getEncodedQuery();
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return e1.toString();
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+                    return (
+
+                            result.toString()
+
+                    );
+                } else {
+                    return ("Connection error");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return e.toString();
+
+            } finally {
+                conne.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("paso",result.toString());
+            //    pdLoading.dismiss();
+
+            if (result.equals("true")) {
+            } else {
+
+            }
+        }
+
+    }
+
+    private class nodriver extends AsyncTask<String, String, String> {
+        HttpURLConnection conne;
+        //        ProgressDialog pdLoading = new ProgressDialog(mainContext.this);
+        URL url = null;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            //          pdLoading.setMessage("\tCargando Adicionales");
+            //        pdLoading.setCancelable(false);
+            //      pdLoading.show();
+        }
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                url = new URL("https://sodapop.pe/sugest/driverdesabilitapedido.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return e.toString();
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("POST");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+                Uri.Builder builder = new Uri.Builder()
+                        .appendQueryParameter("idpedido", params[0])
+                        .appendQueryParameter("idempresa", params[1])
+                        ;
+                String query = builder.build().getEncodedQuery();
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return e1.toString();
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+                    }
+                    return (
+
+                            result.toString()
+
+                    );
+                } else {
+                    return ("Connection error");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return e.toString();
+
+            } finally {
+                conne.disconnect();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("paso",result.toString());
+            //    pdLoading.dismiss();
+
+            if (result.equals("true")) {
+            } else {
+
+            }
+        }
+
+    }
 
 }
 
