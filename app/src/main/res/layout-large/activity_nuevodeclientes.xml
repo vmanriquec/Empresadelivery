@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/fondotarjeta"
+            android:orientation="horizontal">
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/multiAutoCompleteTextView"
+                android:layout_width="340dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/fondoparabuscar"
+                android:hint="Busca un Cliente"
+                android:paddingLeft="15dp"
+                tools:ignore="LabelFor" />
+
+            <Button
+                android:id="@+id/nuevocliente"
+                android:layout_width="48dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/nuevob" />
+
+            <Button
+                android:id="@+id/todoslosclientes"
+                android:layout_width="65dp"
+                android:layout_height="37dp"
+                android:layout_gravity="right|center_horizontal|center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/src_files_emptyproduct"
+                android:text="Todos "
+                android:textColor="@color/colortres" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerdeclientes"
+            android:layout_width="match_parent"
+            android:layout_height="613dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_orange_2"
+            android:gravity="center_horizontal|left"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <Button
+                android:id="@+id/cremashh"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/trans"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Cremashh"
+                android:textColor="@color/colortres"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/adicionaleshh"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@color/trans"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Adicionalhh"
+                android:textColor="@color/colortres"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
