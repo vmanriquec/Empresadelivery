@@ -721,8 +721,9 @@ new traertodoslospedidos().execute(idempresaw);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            Toast.makeText(getBaseContext(), "Cargando tus pedidos", Toast.LENGTH_LONG).show();
 
-            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+           /* BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
             // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -734,7 +735,7 @@ new traertodoslospedidos().execute(idempresaw);
 
             bottomSheetDialog.setArguments(bundle);
             bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+*/
         }
 
         @Override
@@ -892,7 +893,8 @@ for(int a=0;a<ere;a++){
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+            Toast.makeText(getBaseContext(), "Cargando tus pedidos", Toast.LENGTH_LONG).show();
+           /* BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
             // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -906,7 +908,7 @@ for(int a=0;a<ere;a++){
             bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
 
 
-        }
+*/        }
 
         @Override
         protected String doInBackground(String... params) {
@@ -1300,8 +1302,9 @@ for(int a=0;a<ere;a++){
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            Toast.makeText(getBaseContext(), "Cargando tus pedidos", Toast.LENGTH_LONG).show();
 
-            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+          /*  BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
             // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -1313,7 +1316,7 @@ for(int a=0;a<ere;a++){
 
             bottomSheetDialog.setArguments(bundle);
             bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+*/
         }
 
         @Override
@@ -1468,6 +1471,9 @@ for(int a=0;a<ere;a++){
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            Toast.makeText(getBaseContext(), "Cargando tus pedidos", Toast.LENGTH_LONG).show();
+
+/*
 
             BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
@@ -1481,6 +1487,7 @@ for(int a=0;a<ere;a++){
 
             bottomSheetDialog.setArguments(bundle);
             bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+*/
 
         }
 

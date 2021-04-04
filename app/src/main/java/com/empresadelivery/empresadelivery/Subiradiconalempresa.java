@@ -68,16 +68,7 @@ public class Subiradiconalempresa extends AppCompatActivity {
             public void onClick(View v) {
                 if (nombreadi.getText().toString().equals("") || precioad.getText().toString().equals("")){
 
-                    BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("test", " te falta un dato...");
-                    bundle.putString("nombreusuario", "");
-                    bundle.putString("imagen", getResources().getString(R.string.gifadmiracion));
-
-
-                    bottomSheetDialog.setArguments(bundle);
-                    bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+                    Toast.makeText(getBaseContext(), "te falta un dato", Toast.LENGTH_LONG).show();
                 }
 else {
                     Adicional adie = new Adicional(1, nombreadi.getText().toString(), Double.parseDouble(precioad.getText().toString()), "1", Integer.parseInt(idempresa));

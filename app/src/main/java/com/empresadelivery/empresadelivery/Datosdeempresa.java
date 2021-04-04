@@ -130,9 +130,11 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
             @Override
             public void onClick(View v) {
 
-                if(dire.getText().toString().equals("")){
+                if (dire.getText().toString().equals("")) {
 
-                    BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+                    Toast.makeText(getBaseContext(), "Debes agregar un nombre", Toast.LENGTH_LONG).show();
+
+                  /*  BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
                     Bundle bundle = new Bundle();
                     bundle.putString("test", "debes agregar un nombre");
                     bundle.putString("nombreusuario", "");
@@ -141,16 +143,16 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
 
                     bottomSheetDialog.setArguments(bundle);
                     bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
-
+*/
 
 
                 }
 
 
                 else{
+                    Toast.makeText(getBaseContext(), "Guardando datos", Toast.LENGTH_LONG).show();
 
-                BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+               /* BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
                 // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -160,6 +162,8 @@ guardarempresa=(Button) findViewById(R.id.guardarproducto2);
 
                 bottomSheetDialog.setArguments(bundle);
                 bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+*/
+
 
                 final FirebaseStorage storage= FirebaseStorage.getInstance();
 

@@ -18,6 +18,39 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="toca para ubicar tu direccion" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/direccionempresal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toLeftOf="@+id/sacarubicacion"
+                    android:gravity="center_vertical"
+                    android:hint="Direccion  de tu empresa(Obligatorio) ->"
+                    android:inputType="textPersonName" />
+
+                <Button
+                    android:id="@+id/sacarubicacion"
+                    android:layout_width="65dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/gps">
+
+                </Button>
+            </RelativeLayout>
+
+            <TextView
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,35 +84,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint=" Razon soc. de tu empresa(Obligatorio)" />
-
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/direccionempresal"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:gravity="center_vertical"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerHorizontal="true"
-                        android:layout_toLeftOf="@+id/sacarubicacion"
-                        android:hint="Direccion  de tu empresa(Obligatorio) ->"
-                        android:inputType="textPersonName" />
-
-                    <Button
-                        android:id="@+id/sacarubicacion"
-                        android:layout_width="65dp"
-                        android:layout_height="55dp"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/gps"
-                        android:layout_centerHorizontal="true">
-
-                    </Button>
-                </RelativeLayout>
-
 
 
             <EditText

@@ -173,7 +173,9 @@ public class Editarproducto extends AppCompatActivity {
 
 guardarproductoe.setOnClickListener(new View.OnClickListener() {
     @Override
-    public void onClick(View v) {     BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+    public void onClick(View v) {
+
+
 
         // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -199,13 +201,7 @@ guardarproductoe.setOnClickListener(new View.OnClickListener() {
             public void onFailure(@NonNull Exception exception) {
                 // Handle unsuccessful uploads
                 Bundle bundle = new Bundle();
-                bundle.putString("test", "Woooooooow nose pudo atualizar la informacion ");
-                bundle.putString("nombreusuario", "Upsss!");
-                bundle.putString("imagen", "https://www.sodapop.pe/ii.gif");
-
-
-                bottomSheetDialog.setArguments(bundle);
-                bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+                Toast.makeText(getBaseContext(), "Algo fallo o se actualizo nada", Toast.LENGTH_LONG).show();
 
             }
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

@@ -18,6 +18,7 @@
         app:cardElevation="15dp">
 
         <RelativeLayout
+
             android:id="@+id/imageLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,12 +36,11 @@
 
             <TextView
                 android:id="@+id/inventarioproducto"
-                android:layout_width="24dp"
-                android:layout_height="28dp"
-                android:hint="n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textColor="@color/colortres"
-                android:textSize="18dp"
+                android:textColor="@color/colordos"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -68,8 +68,8 @@
 
             <TextView
                 android:id="@+id/ingredientesproductos"
-                android:layout_width="193dp"
-                android:layout_height="73dp"
+                android:layout_width="198dp"
+                android:layout_height="95dp"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="62dp"
@@ -78,12 +78,12 @@
 
             <ImageView
                 android:id="@+id/imagenproductos"
-                android:layout_width="125dp"
-                android:layout_height="125dp"
+                android:layout_width="126dp"
+                android:layout_height="130dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="27dp"
                 android:scaleType="fitXY" />
 
             <Button
@@ -110,6 +110,15 @@
 
 
                 android:background="@drawable/editarb" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/ingredientesproductos"
+                android:layout_below="@+id/eliminarproducto"
+
+            />
 
         </RelativeLayout>
 

@@ -107,7 +107,9 @@ guardarproducto=(Button)findViewById(R.id.guardarproducto);
 guardarproducto.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+        Toast.makeText(getBaseContext(), "Guardando Datos de Producto", Toast.LENGTH_LONG).show();
+
+       /* BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
 
        // String nombre = prefs.getString("nombreusuariof", "");
 
@@ -119,7 +121,7 @@ guardarproducto.setOnClickListener(new View.OnClickListener() {
 
         bottomSheetDialog.setArguments(bundle);
         bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+*/
         final FirebaseStorage storage= FirebaseStorage.getInstance();
 
         StorageReference storageRef = storage.getReference();

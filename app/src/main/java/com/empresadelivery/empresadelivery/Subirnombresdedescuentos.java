@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.empresadelivery.empresadelivery.adaptadores.Adaptadordescuentos;
@@ -66,16 +67,7 @@ public class Subirnombresdedescuentos extends AppCompatActivity {
 
 
 
-                    BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("test", "debes agregar un nombre");
-                    bundle.putString("nombreusuario", "");
-                    bundle.putString("imagen", getResources().getString(R.string.gifadmiracion));
-
-
-                    bottomSheetDialog.setArguments(bundle);
-                    bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+                    Toast.makeText(getBaseContext(), "Debes agregar un nombre", Toast.LENGTH_LONG).show();
 
                 }
                 else {

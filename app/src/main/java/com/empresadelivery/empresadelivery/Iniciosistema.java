@@ -84,9 +84,9 @@ public class Iniciosistema extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pdLoading.setMessage("\tCargando tipos de pago");
-            pdLoading.setCancelable(false);
-            pdLoading.show();
+            //pdLoading.setMessage("\tCargando tipos de pago");
+            //pdLoading.setCancelable(false);
+            //pdLoading.show();
 
         }
 
@@ -163,7 +163,7 @@ public class Iniciosistema extends AppCompatActivity {
                 }
 
             }
-            pdLoading.dismiss();
+          //  pdLoading.dismiss();
 
 
         }

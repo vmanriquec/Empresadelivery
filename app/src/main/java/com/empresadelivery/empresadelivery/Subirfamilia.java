@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.empresadelivery.empresadelivery.adaptadores.Adaptadorfamilia;
 import com.empresadelivery.empresadelivery.modelos.Crema;
@@ -79,9 +80,10 @@ grabar.setOnClickListener(new View.OnClickListener() {
 
         if (nombrecrem.getText().toString().equals("")){
 
+            Toast.makeText(getBaseContext(), "Debes agregar un nombre", Toast.LENGTH_LONG).show();
 
 
-            BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
+          /*  BottomSheetFragment bottomSheetDialog = BottomSheetFragment.newInstance();
             Bundle bundle = new Bundle();
             bundle.putString("test", "debes agregar un nombre");
             bundle.putString("nombreusuario", "");
@@ -90,7 +92,7 @@ grabar.setOnClickListener(new View.OnClickListener() {
 
             bottomSheetDialog.setArguments(bundle);
             bottomSheetDialog.show(getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
-
+*/
 
         }
         else {

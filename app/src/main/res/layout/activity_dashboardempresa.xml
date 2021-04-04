@@ -35,6 +35,20 @@ android:textColor="@color/colortres"
         android:textSize="18dp"
         android:text="Abierto" />
 
+    <Button
+        android:id="@+id/avanzado"
+        android:layout_width="97dp"
+        android:layout_height="38dp"
+        android:layout_below="@+id/estadoabierto"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="39dp"
+        android:layout_toEndOf="@+id/logoempresa"
+        android:background="@drawable/fondotarjeta"
+        android:elevation="20dp"
+        android:text="Avanzado..." />
+
     <TextView
         android:id="@+id/razonsocialdashboard"
         android:layout_width="wrap_content"

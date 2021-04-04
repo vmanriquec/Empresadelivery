@@ -12,18 +12,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.empresadelivery.empresadelivery.Dashboardempresa;
 import com.empresadelivery.empresadelivery.Editarproducto;
 import com.empresadelivery.empresadelivery.R;
 import com.empresadelivery.empresadelivery.modelos.Detallepedido;
 import com.empresadelivery.empresadelivery.modelos.Productos;
+import com.empresadelivery.empresadelivery.modelos.Tipodepagoempresa;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -81,6 +85,7 @@ public class Adaptadormaestraproducto extends RecyclerView.Adapter<Adaptadormaes
         protected TextView inventario;
     protected  ImageView getProductoimagen;
         protected Button editar,eliminaro;
+        protected Switch habilitado;
         ;
 
         public AdaptadorViewHolder(View v){
@@ -91,6 +96,8 @@ public class Adaptadormaestraproducto extends RecyclerView.Adapter<Adaptadormaes
             this.inventario=(TextView) v.findViewById(R.id.inventarioproducto);
             this.productoingredientes=(TextView) v.findViewById(R.id.ingredientesproductos);
             this.productoimagen=(ImageView) v.findViewById(R.id.imagenproductos);
+            this.habilitado=(Switch)v.findViewById(R.id.switch1);
+
 this.eliminaro=(Button)v.findViewById(R.id.eliminarproducto);
 this.editar=(Button)v.findViewById(R.id.editarproducfindto);
 
@@ -110,15 +117,35 @@ this.editar=(Button)v.findViewById(R.id.editarproducfindto);
         viewHolder.productoingredientes.setText(item.getIngredientes());
         viewHolder.productoprecio.setText("S/. "+ String.valueOf(item.getPrecventa()));
         viewHolder.idproducto.setText(String.valueOf(item.getIdproducto()));
+String ty=item.getEstadoproducto();
 
-        if (item.getEstadoproducto().equals("")){
+        if (ty.equals("0")){
+            viewHolder.inventario.setText("no disponible");
+            viewHolder.habilitado.setChecked(false);
 
-            viewHolder.inventario.setText("0");
 
         }else{
+            viewHolder.inventario.setText("");
+            viewHolder.habilitado.setChecked(true);
 
-            viewHolder.inventario.setText(String.valueOf(item.getEstadoproducto()));
+
+
         }
+        viewHolder.habilitado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (isChecked) {
+                    new actualizarabiertocerrado().execute("1",String.valueOf(item.getIdproducto()));
+                    viewHolder.inventario.setText("");
+                } else {
+                    new actualizarabiertocerrado().execute("0",String.valueOf(item.getIdproducto()));
+                    viewHolder.inventario.setText("no disponible");
+
+
+                }
+            }
+        });
+
 
         foto=item.getDescripcion().toString();
 
@@ -191,6 +218,7 @@ viewHolder.editar.setOnClickListener(new View.OnClickListener() {
     }
 });
     }
+
 
     private void eliminarimagendestorage(String ima) {
         // Create a storage reference from our app
@@ -324,7 +352,105 @@ viewHolder.editar.setOnClickListener(new View.OnClickListener() {
         }
 
 
+    private class actualizarabiertocerrado extends AsyncTask<String, String, String> {
+        ArrayList<Tipodepagoempresa> people=new ArrayList<>();
+        private String[] strArrData = {"No Suggestions"};
 
+        HttpURLConnection conne;
+        URL url = null;
+        ArrayList<Tipodepagoempresa> listaalmaceno = new ArrayList<Tipodepagoempresa>();
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                url = new URL("https://sodapop.pe/sugest/habilitarproductow.php");
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return e.toString();
+            }
+            try {
+                conne = (HttpURLConnection) url.openConnection();
+                conne.setReadTimeout(READ_TIMEOUT);
+                conne.setConnectTimeout(CONNECTION_TIMEOUT);
+                conne.setRequestMethod("POST");
+                conne.setDoInput(true);
+                conne.setDoOutput(true);
+
+                // Append parameters to URL
+
+
+
+                Uri.Builder builder = new Uri.Builder()
+
+                        .appendQueryParameter("idestado", params[0])
+                        .appendQueryParameter("idproducto", params[1])
+                        ;
+
+                String query = builder.build().getEncodedQuery();
+
+                // Open connection for sending data
+                OutputStream os = conne.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+                conne.connect();
+
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+                return e1.toString();
+            }
+            try {
+                int response_code = conne.getResponseCode();
+                if (response_code == HttpURLConnection.HTTP_OK) {
+                    InputStream input = conne.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+                    StringBuilder result = new StringBuilder();
+                    String line;
+
+                    while ((line = reader.readLine()) != null) {
+                        result.append(line);
+
+                    }
+                    return (
+
+                            result.toString()
+
+
+                    );
+
+                } else {
+                    return("Connection error");
+                }
+            } catch (IOException e) {
+                e.printStackTrace()                ;
+
+                return e.toString();
+            } finally {
+                conne.disconnect();
+            }
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("paso",result.toString());
+
+        }
+
+    }
     }
 
 
